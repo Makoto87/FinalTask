@@ -9,8 +9,10 @@
 // JSQMessagesViewController    をチャット機能として使う
 
 import UIKit
+import JSQMessagesViewController
 
-class MessageViewController: UIViewController {
+// チャット用画面
+class MessageViewController: JSQMessagesViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
