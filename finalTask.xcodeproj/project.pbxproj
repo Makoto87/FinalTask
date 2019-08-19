@@ -13,6 +13,12 @@
 		E13B28EF23094B1D002B67D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13B28ED23094B1D002B67D9 /* Main.storyboard */; };
 		E13B28F123094B1D002B67D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E13B28F023094B1D002B67D9 /* Assets.xcassets */; };
 		E13B28F423094B1D002B67D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13B28F223094B1D002B67D9 /* LaunchScreen.storyboard */; };
+		E13D5280230A70190078CFAB /* ProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13D527F230A70190078CFAB /* ProfileStoryboard.storyboard */; };
+		E13D5282230A702A0078CFAB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13D5281230A702A0078CFAB /* ProfileViewController.swift */; };
+		E13D5284230A70380078CFAB /* MapStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13D5283230A70380078CFAB /* MapStoryboard.storyboard */; };
+		E13D5286230A70470078CFAB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13D5285230A70470078CFAB /* MapViewController.swift */; };
+		E13D5288230A70560078CFAB /* MessageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13D5287230A70560078CFAB /* MessageStoryboard.storyboard */; };
+		E13D528A230A70650078CFAB /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13D5289230A70650078CFAB /* MessageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +32,12 @@
 		E13B28F323094B1D002B67D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E13B28F523094B1D002B67D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E13B28FC230961BC002B67D9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		E13D527F230A70190078CFAB /* ProfileStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileStoryboard.storyboard; sourceTree = "<group>"; };
+		E13D5281230A702A0078CFAB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E13D5283230A70380078CFAB /* MapStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapStoryboard.storyboard; sourceTree = "<group>"; };
+		E13D5285230A70470078CFAB /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		E13D5287230A70560078CFAB /* MessageStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MessageStoryboard.storyboard; sourceTree = "<group>"; };
+		E13D5289230A70650078CFAB /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		E3B991FC62FB6DFC9BC87B2E /* Pods-finalTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-finalTask.release.xcconfig"; path = "Target Support Files/Pods-finalTask/Pods-finalTask.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,6 +83,11 @@
 		E13B28E823094B1D002B67D9 /* finalTask */ = {
 			isa = PBXGroup;
 			children = (
+				E13D527E230A70000078CFAB /* What */,
+				E13D527D230A6FF70078CFAB /* Message */,
+				E13D527C230A6FDA0078CFAB /* Map */,
+				E13D527B230A6FCB0078CFAB /* Profile */,
+				E13D527A230A6FB40078CFAB /* Main */,
 				E13B28E923094B1D002B67D9 /* AppDelegate.swift */,
 				E13B28EB23094B1D002B67D9 /* ViewController.swift */,
 				E13B28ED23094B1D002B67D9 /* Main.storyboard */,
@@ -79,6 +96,47 @@
 				E13B28F523094B1D002B67D9 /* Info.plist */,
 			);
 			path = finalTask;
+			sourceTree = "<group>";
+		};
+		E13D527A230A6FB40078CFAB /* Main */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E13D527B230A6FCB0078CFAB /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E13D527F230A70190078CFAB /* ProfileStoryboard.storyboard */,
+				E13D5281230A702A0078CFAB /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		E13D527C230A6FDA0078CFAB /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				E13D5283230A70380078CFAB /* MapStoryboard.storyboard */,
+				E13D5285230A70470078CFAB /* MapViewController.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		E13D527D230A6FF70078CFAB /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				E13D5287230A70560078CFAB /* MessageStoryboard.storyboard */,
+				E13D5289230A70650078CFAB /* MessageViewController.swift */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		E13D527E230A70000078CFAB /* What */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = What;
 			sourceTree = "<group>";
 		};
 		E4F9CA36D8D3C0E29B21638D /* Frameworks */ = {
@@ -150,8 +208,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E13B28F423094B1D002B67D9 /* LaunchScreen.storyboard in Resources */,
+				E13D5280230A70190078CFAB /* ProfileStoryboard.storyboard in Resources */,
 				E13B28F123094B1D002B67D9 /* Assets.xcassets in Resources */,
 				E13B28EF23094B1D002B67D9 /* Main.storyboard in Resources */,
+				E13D5284230A70380078CFAB /* MapStoryboard.storyboard in Resources */,
+				E13D5288230A70560078CFAB /* MessageStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,8 +265,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E13D5282230A702A0078CFAB /* ProfileViewController.swift in Sources */,
 				E13B28EC23094B1D002B67D9 /* ViewController.swift in Sources */,
 				E13B28EA23094B1D002B67D9 /* AppDelegate.swift in Sources */,
+				E13D5286230A70470078CFAB /* MapViewController.swift in Sources */,
+				E13D528A230A70650078CFAB /* MessageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

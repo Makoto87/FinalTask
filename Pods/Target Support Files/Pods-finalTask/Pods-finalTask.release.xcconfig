@@ -1,9 +1,9 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/IBAnimatable" "${PODS_CONFIGURATION_BUILD_DIR}/TransitionButton"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/GuillotineMenu" "${PODS_CONFIGURATION_BUILD_DIR}/IBAnimatable" "${PODS_CONFIGURATION_BUILD_DIR}/LTMorphingLabel" "${PODS_CONFIGURATION_BUILD_DIR}/TransitionButton"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/IBAnimatable/IBAnimatable.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/TransitionButton/TransitionButton.framework/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/GuillotineMenu/GuillotineMenu.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/IBAnimatable/IBAnimatable.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/LTMorphingLabel/LTMorphingLabel.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/TransitionButton/TransitionButton.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_LDFLAGS = $(inherited) -framework "IBAnimatable" -framework "TransitionButton" -framework "UIKit"
+OTHER_LDFLAGS = $(inherited) -framework "Foundation" -framework "GuillotineMenu" -framework "IBAnimatable" -framework "LTMorphingLabel" -framework "QuartzCore" -framework "TransitionButton" -framework "UIKit"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
