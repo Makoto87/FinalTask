@@ -118,14 +118,21 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="twH-sN-fK1">
+                                <rect key="frame" x="238" y="458" width="62" height="30"/>
+                                <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="アイコン"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="twH-sN-fK1" secondAttribute="bottom" constant="80" id="2lE-vn-Brn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h6S-d8-i5e" secondAttribute="trailing" id="KzA-gU-FM2"/>
                             <constraint firstItem="h6S-d8-i5e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="M5X-cO-cpU"/>
                             <constraint firstItem="h6S-d8-i5e" firstAttribute="top" secondItem="zvG-Zk-2NJ" secondAttribute="bottom" id="TN3-yU-lgr"/>
                             <constraint firstItem="zvG-Zk-2NJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VAa-MZ-ndm"/>
                             <constraint firstItem="zvG-Zk-2NJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VGy-uC-is0"/>
+                            <constraint firstAttribute="trailing" secondItem="twH-sN-fK1" secondAttribute="trailing" constant="20" id="jQY-Ea-usY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zvG-Zk-2NJ" secondAttribute="trailing" id="mwJ-zs-Vsw"/>
                             <constraint firstItem="h6S-d8-i5e" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="qUR-al-L2m"/>
                         </constraints>
