@@ -6,6 +6,8 @@
 //  Copyright © 2019 VERTEX20. All rights reserved.
 //
 
+// JSQMessagesViewController    をチャット機能として使う
+
 import UIKit
 
 class MessageViewController: UIViewController {

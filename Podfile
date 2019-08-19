@@ -10,6 +10,7 @@ target 'finalTask' do
   pod 'TransitionButton'
   pod 'GuillotineMenu'
   pod 'LTMorphingLabel'
+  pod 'JSQMessagesViewController'
 
 end
 
