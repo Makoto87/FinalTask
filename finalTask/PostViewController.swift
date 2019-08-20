@@ -1,5 +1,5 @@
 //
-//  PostViewController.swift
+//  TestViewController.swift
 //  finalTask
 //
 //  Created by VERTEX20 on 2019/08/20.
@@ -8,82 +8,164 @@
 
 import UIKit
 
-class PostViewController: UIViewController {
+class PostViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegate {
 
-//    // アイコンのimageView
-//    @IBOutlet weak var iconImageView: UIImageView!
-//    // 場所のテキストフィールド
-//    @IBOutlet weak var placeTextField: UITextField!
-//    // 時間のテキストフィールド
-//    @IBOutlet weak var timeTextField: UITextField!
-//    // カテゴリーのテキストフィールド
-//    @IBOutlet weak var categoryTextField: UITextField!
-//    // 価格のテキストフィールド
-//    @IBOutlet weak var priceTextField: UITextField!
-//    // フリーコメントのテキストビュー
-//    @IBOutlet weak var commentTextView: UITextView!
-//    // 色を変えるために用意した投稿ボタンのoutlet
-//    @IBOutlet weak var postAppearButton: UIButton!
+    // アイコンを表示するイメージビュー
+    @IBOutlet weak var iconImageView: UIImageView!
+    // 場所を書くテキストフィールド
+    @IBOutlet weak var placeTextField: UITextField!
+    // 日時を書くテキストフィールド
+    @IBOutlet weak var timeTextField: UITextField!
+    // ジャンルを書くテキストフィールド
+    @IBOutlet weak var categoryTextField: UITextField!
+    // 価格を書くテキストフィールド
+    @IBOutlet weak var priceTextField: UITextField!
+    // コメントを書くテキストフィールド
+    @IBOutlet weak var commentTextField: UITextField!
+    // 投稿ボタンの色を変えるためのoutlet
+    @IBOutlet weak var postOutlet: UIButton!
+    // キーボードを表示させる
+    @IBOutlet weak var postScrollView: UIScrollView!
 
-
+    // キーボードとテキストフィールドをかぶらせないためのもの
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Notificationの発行
+        self.configureObserver()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // コメント欄の枠線設定
-//        commentTextView.layer.borderWidth = 1.0
-//        commentTextView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-//        commentTextView.layer.cornerRadius = 10.0
-//
-//        placeTextField.isEnabled = true
+        // ボタンを押せなくする
+        postOutlet.isEnabled = false
+        buttonEnabled()             // ボタンの機能を変えるメソッド
+        textFieldDidBeginEditing(placeTextField)
 
+        // キーボードとテキストフィールドがかぶらないようにするメソッド
+        self.commentTextField.delegate = self
+        self.postScrollView.delegate = self
 
-        // 入力判定するもの
-//        NotificationCenter.default.addObserver(self, selector: #selector(PostViewController.changeNotifyTextField(sender:)), name: NSNotification.Name.UITextFieldTextDidChange, object: nil)
+        self.postScrollView.frame.size = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
 
+        // textfieldにplaceholderを設置
+        self.commentTextField.placeholder = "text field"
+
+        // textfieldの枠を表示する.
+        self.commentTextField.borderStyle = UITextField.BorderStyle.roundedRect
+
+        // UITextFieldの表示する位置を設定する.
+        self.commentTextField.frame = CGRect(x: 100,y: 700,width: 200,height: 30)
+        // scrollViewを設置
+        self.postScrollView.addSubview(self.commentTextField)
+
+        self.view.addSubview(self.postScrollView)
     }
 
-    // 入力判定するもの
-    public func changeNotifyTextField (sender: NSNotification) {
-        guard let placeTextField = sender.object as? UITextField else {
-            return
+    // ボタンを青色にするメソッド
+    func buttonEnabled() {
+        // プライスフィールドが1文字以上になれば青色になる
+        if placeTextField.text != "" {
+            postOutlet.tintColor = .blue
+            postOutlet.isEnabled = true
+        } else {
+            postOutlet.tintColor = .gray
+            postOutlet.isEnabled = false
         }
-        if placeTextField.text != nil {
-    //        postAppearButton.setTitleColor(UIColor.blue, for: .normal)
-        }
-    }
 
+    }
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        // ボタンの色を変える処理
-   //     postAppearButton.setTitleColor(UIColor.blue, for: .normal)
+        postOutlet.tintColor = .blue
+        postOutlet.isEnabled = true
     }
 
-    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        // ボタンの色を変える処理
-  //      postAppearButton.setTitleColor(UIColor.blue, for: .normal)
+
+
+    // キーボードとテキストフィールドをかぶらせないようにするもの
+    //returnが押されたときに呼ばれる.
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 
-    // 開いた瞬間キーボードが表示される
-    override func viewWillAppear(_ animated: Bool) {
-    //    timeTextField.becomeFirstResponder()
+    // Notificationを設定
+    func configureObserver() {
+
+        let notification = NotificationCenter.default
+
+        notification.addObserver(
+            self,
+            selector: #selector(self.keyboardWillShow(notification:)),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+
+        notification.addObserver(
+            self,
+            selector: #selector(self.keyboardWillHide(notification:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
     }
 
-//    // キャンセルボタン
-//    @IBAction func canselButton(_ sender: Any) {
-//        view.backgroundColor = .blue
-//    }
-//
-//    // 投稿ボタン
-//    @IBAction func postButton(_ sender: Any) {
-//
-//    }
-//
-
-    @IBAction func button(_ sender: Any) {
-    view.backgroundColor = UIColor.yellow
+    // Notificationを削除
+    func removeObserver() {
+        NotificationCenter.default.removeObserver(self)
     }
 
+    // キーボードが現れたときにviewをずらす
+    @objc func keyboardWillShow(notification: Notification?) {
+        let rect = (notification?.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
+        let duration: TimeInterval? = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
+        UIView.animate(withDuration: duration!) {
+            self.view.transform = CGAffineTransform(translationX: 0, y: -(rect?.size.height)!)
+        }
+    }
+
+    // キーボードが消えたときにviewを戻す
+    @objc func keyboardWillHide(notification: Notification?) {
+        let duration: TimeInterval? = notification?.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? Double
+        UIView.animate(withDuration: duration!) {
+            self.view.transform = CGAffineTransform.identity
+        }
+    }
+
+
+
+
+
+    // キャンセルボタン
+    @IBAction func cancelButton(_ sender: Any) {
+    }
+
+    // 投稿ボタン
+    @IBAction func postButton(_ sender: Any) {
+    }
+
+    // キーボード以外をタッチすればなくなる
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // 場所。キーボードが開いていたら
+        if (placeTextField.isFirstResponder) {
+            // 閉じる
+            placeTextField.resignFirstResponder()
+        }
+        // 日時
+        if (timeTextField.isFirstResponder) {
+            timeTextField.resignFirstResponder()
+        }
+        // ジャンル
+        if (categoryTextField.isFirstResponder) {
+            categoryTextField.resignFirstResponder()
+        }
+        // 価格
+        if (priceTextField.isFirstResponder) {
+            priceTextField.resignFirstResponder()
+        }
+        // コメント
+        if (commentTextField.isFirstResponder) {
+            commentTextField.resignFirstResponder()
+        }
+    }
 
 
 
 }
-
