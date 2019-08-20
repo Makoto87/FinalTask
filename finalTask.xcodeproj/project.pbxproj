@@ -22,6 +22,7 @@
 		E13D5286230A70470078CFAB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13D5285230A70470078CFAB /* MapViewController.swift */; };
 		E13D5288230A70560078CFAB /* MessageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13D5287230A70560078CFAB /* MessageStoryboard.storyboard */; };
 		E13D528A230A70650078CFAB /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13D5289230A70650078CFAB /* MessageViewController.swift */; };
+		E1BBA6A9230BEC8100DF29B0 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BBA6A8230BEC8100DF29B0 /* TestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		E13D5285230A70470078CFAB /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		E13D5287230A70560078CFAB /* MessageStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MessageStoryboard.storyboard; sourceTree = "<group>"; };
 		E13D5289230A70650078CFAB /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		E1BBA6A8230BEC8100DF29B0 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		E3B991FC62FB6DFC9BC87B2E /* Pods-finalTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-finalTask.release.xcconfig"; path = "Target Support Files/Pods-finalTask/Pods-finalTask.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +108,7 @@
 				E13B28E923094B1D002B67D9 /* AppDelegate.swift */,
 				E134E782230B9CC200566175 /* PostViewController.swift */,
 				E13B28EB23094B1D002B67D9 /* ViewController.swift */,
+				E1BBA6A8230BEC8100DF29B0 /* TestViewController.swift */,
 				E13B28ED23094B1D002B67D9 /* Main.storyboard */,
 				E13B28F023094B1D002B67D9 /* Assets.xcassets */,
 				E13B28F223094B1D002B67D9 /* LaunchScreen.storyboard */,
@@ -285,6 +288,7 @@
 			files = (
 				E13D5282230A702A0078CFAB /* ProfileViewController.swift in Sources */,
 				E13B28EC23094B1D002B67D9 /* ViewController.swift in Sources */,
+				E1BBA6A9230BEC8100DF29B0 /* TestViewController.swift in Sources */,
 				E134E783230B9CC200566175 /* PostViewController.swift in Sources */,
 				E13B28EA23094B1D002B67D9 /* AppDelegate.swift in Sources */,
 				E13D5286230A70470078CFAB /* MapViewController.swift in Sources */,
