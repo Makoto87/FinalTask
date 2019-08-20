@@ -256,6 +256,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jXg-wo-w5K"/>
                     </view>
+                    <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="categoryTextField" destination="tGX-Qh-Oeh" id="xZm-X8-w0h"/>
                         <outlet property="commentTextField" destination="kK8-r5-Jdh" id="89Y-sa-RSp"/>

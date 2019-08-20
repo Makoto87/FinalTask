@@ -31,7 +31,7 @@ class PostViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Notificationの発行
-        self.configureObserver()
+//        self.configureObserver()
     }
 
     override func viewDidLoad() {
@@ -39,7 +39,7 @@ class PostViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
         // ボタンを押せなくする
         postOutlet.isEnabled = false
         buttonEnabled()             // ボタンの機能を変えるメソッド
-        textFieldDidBeginEditing(placeTextField)
+        textFieldDidBeginEditing(placeTextField)            // ボタンの機能を変えるメソッド
 
         // キーボードとテキストフィールドがかぶらないようにするメソッド
         self.commentTextField.delegate = self
@@ -58,6 +58,7 @@ class PostViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
         }
 
     }
+    // ボタンの機能を変えるメソッド
     func textFieldDidBeginEditing(_ textField: UITextField) {
         postOutlet.tintColor = .blue
         postOutlet.isEnabled = true
@@ -72,50 +73,47 @@ class PostViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
         return true
     }
 
-    // Notificationを設定
-    func configureObserver() {
+//    // Notificationを設定
+//    func configureObserver() {
+//
+//        let notification = NotificationCenter.default
+//
+//        notification.addObserver(
+//            self,
+//            selector: #selector(self.keyboardWillShow(notification:)),
+//            name: UIResponder.keyboardWillShowNotification,
+//            object: nil
+//        )
+//
+//        notification.addObserver(
+//            self,
+//            selector: #selector(self.keyboardWillHide(notification:)),
+//            name: UIResponder.keyboardWillHideNotification,
+//            object: nil
+//        )
+//    }
 
-        let notification = NotificationCenter.default
+//    // Notificationを削除
+//    func removeObserver() {
+//        NotificationCenter.default.removeObserver(self)
+//    }
 
-        notification.addObserver(
-            self,
-            selector: #selector(self.keyboardWillShow(notification:)),
-            name: UIResponder.keyboardWillShowNotification,
-            object: nil
-        )
-
-        notification.addObserver(
-            self,
-            selector: #selector(self.keyboardWillHide(notification:)),
-            name: UIResponder.keyboardWillHideNotification,
-            object: nil
-        )
-    }
-
-    // Notificationを削除
-    func removeObserver() {
-        NotificationCenter.default.removeObserver(self)
-    }
-
-    // キーボードが現れたときにviewをずらす
-    @objc func keyboardWillShow(notification: Notification?) {
-        let rect = (notification?.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
-        let duration: TimeInterval? = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
-        UIView.animate(withDuration: duration!) {
-            self.view.transform = CGAffineTransform(translationX: 0, y: -(rect?.size.height)!)
-        }
-    }
-
-    // キーボードが消えたときにviewを戻す
-    @objc func keyboardWillHide(notification: Notification?) {
-        let duration: TimeInterval? = notification?.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? Double
-        UIView.animate(withDuration: duration!) {
-            self.view.transform = CGAffineTransform.identity
-        }
-    }
-
-
-
+//    // キーボードが現れたときにviewをずらす
+//    @objc func keyboardWillShow(notification: Notification?) {
+//        let rect = (notification?.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
+//        let duration: TimeInterval? = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
+//        UIView.animate(withDuration: duration!) {
+//            self.view.transform = CGAffineTransform(translationX: 0, y: -(rect?.size.height)!)
+//        }
+//    }
+//
+//    // キーボードが消えたときにviewを戻す
+//    @objc func keyboardWillHide(notification: Notification?) {
+//        let duration: TimeInterval? = notification?.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? Double
+//        UIView.animate(withDuration: duration!) {
+//            self.view.transform = CGAffineTransform.identity
+//        }
+//    }
 
 
     // キャンセルボタン
@@ -126,12 +124,14 @@ class PostViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
     @IBAction func postButton(_ sender: Any) {
     }
 
+
+
     // キーボード以外をタッチすればなくなる
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // 場所。キーボードが開いていたら
         if (placeTextField.isFirstResponder) {
             // 閉じる
-            placeTextField.resignFirstResponder()
+            placeTextField.endEditing(true)
         }
         // 日時
         if (timeTextField.isFirstResponder) {
