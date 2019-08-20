@@ -11,6 +11,7 @@ target 'finalTask' do
   pod 'GuillotineMenu'
   pod 'LTMorphingLabel'
   pod 'JSQMessagesViewController'
+  pod 'MMTabBarAnimation'
 
 end
 

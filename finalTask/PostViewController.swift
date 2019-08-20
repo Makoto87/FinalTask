@@ -44,21 +44,6 @@ class PostViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
         // キーボードとテキストフィールドがかぶらないようにするメソッド
         self.commentTextField.delegate = self
         self.postScrollView.delegate = self
-
-        self.postScrollView.frame.size = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-
-        // textfieldにplaceholderを設置
-        self.commentTextField.placeholder = "text field"
-
-        // textfieldの枠を表示する.
-        self.commentTextField.borderStyle = UITextField.BorderStyle.roundedRect
-
-        // UITextFieldの表示する位置を設定する.
-        self.commentTextField.frame = CGRect(x: 100,y: 700,width: 200,height: 30)
-        // scrollViewを設置
-        self.postScrollView.addSubview(self.commentTextField)
-
-        self.view.addSubview(self.postScrollView)
     }
 
     // ボタンを青色にするメソッド
