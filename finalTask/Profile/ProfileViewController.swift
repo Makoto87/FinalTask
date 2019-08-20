@@ -9,10 +9,15 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    // テーブルビュー紐付け
+    @IBOutlet weak var profileTableview: UITableView!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        profileTableview.layer.borderColor = #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 1)
+        profileTableview.separatorColor = #colorLiteral(red: 0.1921568662, green: 0.007843137719, blue: 0.09019608051, alpha: 1)
         // Do any additional setup after loading the view.
     }
     

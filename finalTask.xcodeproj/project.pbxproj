@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		BED52D686AFD235F1D1B84D8 /* Pods_finalTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1063668BA04E2CFDDBD10AB9 /* Pods_finalTask.framework */; };
+		E134E77F230B6F8C00566175 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E134E77E230B6F8C00566175 /* CategoryViewController.swift */; };
+		E134E781230B6FA300566175 /* CategoryStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E134E780230B6FA300566175 /* CategoryStoryboard.storyboard */; };
+		E134E783230B9CC200566175 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E134E782230B9CC200566175 /* PostViewController.swift */; };
 		E13B28EA23094B1D002B67D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13B28E923094B1D002B67D9 /* AppDelegate.swift */; };
 		E13B28EC23094B1D002B67D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13B28EB23094B1D002B67D9 /* ViewController.swift */; };
 		E13B28EF23094B1D002B67D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13B28ED23094B1D002B67D9 /* Main.storyboard */; };
@@ -24,6 +27,9 @@
 /* Begin PBXFileReference section */
 		1063668BA04E2CFDDBD10AB9 /* Pods_finalTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_finalTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A389BE4E8AFE73EA30B96509 /* Pods-finalTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-finalTask.debug.xcconfig"; path = "Target Support Files/Pods-finalTask/Pods-finalTask.debug.xcconfig"; sourceTree = "<group>"; };
+		E134E77E230B6F8C00566175 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		E134E780230B6FA300566175 /* CategoryStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategoryStoryboard.storyboard; sourceTree = "<group>"; };
+		E134E782230B9CC200566175 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		E13B28E623094B1D002B67D9 /* finalTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = finalTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E13B28E923094B1D002B67D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E13B28EB23094B1D002B67D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +68,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E134E77D230B6F5400566175 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				E134E77E230B6F8C00566175 /* CategoryViewController.swift */,
+				E134E780230B6FA300566175 /* CategoryStoryboard.storyboard */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		E13B28DD23094B1D002B67D9 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +104,7 @@
 				E13D527B230A6FCB0078CFAB /* Profile */,
 				E13D527A230A6FB40078CFAB /* Main */,
 				E13B28E923094B1D002B67D9 /* AppDelegate.swift */,
+				E134E782230B9CC200566175 /* PostViewController.swift */,
 				E13B28EB23094B1D002B67D9 /* ViewController.swift */,
 				E13B28ED23094B1D002B67D9 /* Main.storyboard */,
 				E13B28F023094B1D002B67D9 /* Assets.xcassets */,
@@ -101,6 +117,7 @@
 		E13D527A230A6FB40078CFAB /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				E134E77D230B6F5400566175 /* Category */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -209,6 +226,7 @@
 			files = (
 				E13B28F423094B1D002B67D9 /* LaunchScreen.storyboard in Resources */,
 				E13D5280230A70190078CFAB /* ProfileStoryboard.storyboard in Resources */,
+				E134E781230B6FA300566175 /* CategoryStoryboard.storyboard in Resources */,
 				E13B28F123094B1D002B67D9 /* Assets.xcassets in Resources */,
 				E13B28EF23094B1D002B67D9 /* Main.storyboard in Resources */,
 				E13D5284230A70380078CFAB /* MapStoryboard.storyboard in Resources */,
@@ -267,8 +285,10 @@
 			files = (
 				E13D5282230A702A0078CFAB /* ProfileViewController.swift in Sources */,
 				E13B28EC23094B1D002B67D9 /* ViewController.swift in Sources */,
+				E134E783230B9CC200566175 /* PostViewController.swift in Sources */,
 				E13B28EA23094B1D002B67D9 /* AppDelegate.swift in Sources */,
 				E13D5286230A70470078CFAB /* MapViewController.swift in Sources */,
+				E134E77F230B6F8C00566175 /* CategoryViewController.swift in Sources */,
 				E13D528A230A70650078CFAB /* MessageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

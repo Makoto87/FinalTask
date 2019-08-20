@@ -9,6 +9,7 @@
 // 起動画面(スプラッシュ)
 // ストーリーボード・・・タイムライン、地図、メッセージ、プロフィール、検索、
 // view・・・プロフィール(ツイッター)、通知、投稿
+// ボタン押すときのエフェクト https://github.com/okmr-d/DOFavoriteButton
 
 import UIKit
 import GuillotineMenu   // サイドメニューが出てくるものをインポート
@@ -20,7 +21,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // 1から順番にアイコン・場所・日時・コメント・写真
     @IBOutlet weak var tableView: UITableView!
 
-    
+    // ライブラリサイドメニューを使うためのもの
 //    let mainViewController = storyboard!.instantiateViewController(withIdentifier: "MainViewController")
 //    mainViewController.modalPresentationStyle = .custom
 //    mainViewController.transitioningDelegate = self
@@ -36,6 +37,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // tableviewの delegateとdatasourseを接続
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.viewWithTag(6)?.isHidden = true
 
     }
 
@@ -48,10 +50,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        cell.viewWithTag(5)?.isHidden = true
-
         return cell
     }
+
+    // 投稿ボタン。画面遷移する
+    @IBAction func sendButton(_ sender: Any) {
+
+        performSegue(withIdentifier: "sendPost", sender: nil)
+
+    }
+
+//    // 遷移するときに情報を送る処理
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        guard segue.identifier == "sendPost", let svc = segue.destination as? PostViewController  else{
+//            // destinationはUIの上位互換のようなもの
+//            // identifierがnameSegue かつ destinationがprofileControllerなら動く。asは=のようなもの。
+//            return
+//        }
+//
+//    }
+
+
+
+
+
 
 
 

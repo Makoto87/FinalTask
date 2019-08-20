@@ -7,6 +7,9 @@
 //
 
 // JSQMessagesViewController    をチャット機能として使う
+// UITableViewCellを追加していくことでタイムライン表示している。
+// 表示する文字数によってはTableViewCellに配置しているUILabelが複数行表示になるため、cellForRowAtのタイミングでTableViewCellに計算済みのCellの高さを設定する。
+
 
 import UIKit
 import JSQMessagesViewController
