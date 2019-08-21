@@ -10,9 +10,12 @@
 // ストーリーボード・・・タイムライン、地図、メッセージ、プロフィール、検索、
 // view・・・プロフィール(ツイッター)、通知、投稿
 // ボタン押すときのエフェクト https://github.com/okmr-d/DOFavoriteButton
+// タブバー  https://github.com/Cuberto/flashy-tabbar
+// ナビゲーションバー https://qiita.com/homyu/items/1365c8f8c3be4465df87
 
 import UIKit
 import GuillotineMenu   // サイドメニューが出てくるものをインポート
+
 
 // テーブルビューとサイドメニューのクラスを追加
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate {
@@ -50,7 +53,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
+
+
         return cell
+    }
+
+    // セルの遷移設定
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        // セグエで画面遷移
+        performSegue(withIdentifier: "toDetailSegue", sender: nil)
     }
 
     // 投稿ボタン。画面遷移する

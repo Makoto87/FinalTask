@@ -27,94 +27,23 @@ class PostViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
     // キーボードを表示させる
     @IBOutlet weak var postScrollView: UIScrollView!
 
-    // キーボードとテキストフィールドをかぶらせないためのもの
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // Notificationの発行
-//        self.configureObserver()
+    // テキストフィールドに書かれたら反応する
+    @IBAction func placeTextFieldAction(_ sender: UITextField) {
+        // テキストに文字が入れられたとき
+        if sender.text != ""{
+            self.postOutlet.setTitleColor(UIColor.blue, for: .normal)       // 青色になる
+            postOutlet.isEnabled = true                                     // ボタン使用可になる
+        } else {
+            self.postOutlet.setTitleColor(UIColor.gray, for: .normal)       // 灰色になる
+            postOutlet.isEnabled = false                                    // ボタン使用不可になる
+        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // ボタンを押せなくする
         postOutlet.isEnabled = false
-        buttonEnabled()             // ボタンの機能を変えるメソッド
-        textFieldDidBeginEditing(placeTextField)            // ボタンの機能を変えるメソッド
-
-        // キーボードとテキストフィールドがかぶらないようにするメソッド
-        self.commentTextField.delegate = self
-        self.postScrollView.delegate = self
     }
-
-    // ボタンを青色にするメソッド
-    func buttonEnabled() {
-        // プライスフィールドが1文字以上になれば青色になる
-        if placeTextField.text != "" {
-            postOutlet.tintColor = .blue
-            postOutlet.isEnabled = true
-        } else {
-            postOutlet.tintColor = .gray
-            postOutlet.isEnabled = false
-        }
-
-    }
-    // ボタンの機能を変えるメソッド
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        postOutlet.tintColor = .blue
-        postOutlet.isEnabled = true
-    }
-
-
-
-    // キーボードとテキストフィールドをかぶらせないようにするもの
-    //returnが押されたときに呼ばれる.
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-
-//    // Notificationを設定
-//    func configureObserver() {
-//
-//        let notification = NotificationCenter.default
-//
-//        notification.addObserver(
-//            self,
-//            selector: #selector(self.keyboardWillShow(notification:)),
-//            name: UIResponder.keyboardWillShowNotification,
-//            object: nil
-//        )
-//
-//        notification.addObserver(
-//            self,
-//            selector: #selector(self.keyboardWillHide(notification:)),
-//            name: UIResponder.keyboardWillHideNotification,
-//            object: nil
-//        )
-//    }
-
-//    // Notificationを削除
-//    func removeObserver() {
-//        NotificationCenter.default.removeObserver(self)
-//    }
-
-//    // キーボードが現れたときにviewをずらす
-//    @objc func keyboardWillShow(notification: Notification?) {
-//        let rect = (notification?.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
-//        let duration: TimeInterval? = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
-//        UIView.animate(withDuration: duration!) {
-//            self.view.transform = CGAffineTransform(translationX: 0, y: -(rect?.size.height)!)
-//        }
-//    }
-//
-//    // キーボードが消えたときにviewを戻す
-//    @objc func keyboardWillHide(notification: Notification?) {
-//        let duration: TimeInterval? = notification?.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? Double
-//        UIView.animate(withDuration: duration!) {
-//            self.view.transform = CGAffineTransform.identity
-//        }
-//    }
-
 
     // キャンセルボタン
     @IBAction func cancelButton(_ sender: Any) {
@@ -123,34 +52,5 @@ class PostViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
     // 投稿ボタン
     @IBAction func postButton(_ sender: Any) {
     }
-
-
-
-    // キーボード以外をタッチすればなくなる
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // 場所。キーボードが開いていたら
-        if (placeTextField.isFirstResponder) {
-            // 閉じる
-            placeTextField.endEditing(true)
-        }
-        // 日時
-        if (timeTextField.isFirstResponder) {
-            timeTextField.resignFirstResponder()
-        }
-        // ジャンル
-        if (categoryTextField.isFirstResponder) {
-            categoryTextField.resignFirstResponder()
-        }
-        // 価格
-        if (priceTextField.isFirstResponder) {
-            priceTextField.resignFirstResponder()
-        }
-        // コメント
-        if (commentTextField.isFirstResponder) {
-            commentTextField.resignFirstResponder()
-        }
-    }
-
-
 
 }
