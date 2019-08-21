@@ -12,17 +12,29 @@
 
 
 import UIKit
-import JSQMessagesViewController
+//import JSQMessagesViewController
 
 // チャット用画面
-class MessageViewController: JSQMessagesViewController {
+class MessageViewController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
-    
+
+//    // セルの数
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 30
+//    }
+//
+//    // セルの設定
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath)
+//
+//
+//
+//        return cell
+//    }
 
     /*
     // MARK: - Navigation

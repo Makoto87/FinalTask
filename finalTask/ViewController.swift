@@ -53,7 +53,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // ナビゲーションバーの線を消す
         navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
 
-
     }
 
     // 最初 + 遷移から戻ったとき

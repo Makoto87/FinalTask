@@ -22,6 +22,7 @@
 		E13D5288230A70560078CFAB /* MessageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13D5287230A70560078CFAB /* MessageStoryboard.storyboard */; };
 		E13D528A230A70650078CFAB /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13D5289230A70650078CFAB /* MessageViewController.swift */; };
 		E16E0CC2230D217A00F4A95D /* PostCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16E0CC1230D217A00F4A95D /* PostCellViewController.swift */; };
+		E16E0CC4230D2C0F00F4A95D /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16E0CC3230D2C0F00F4A95D /* testViewController.swift */; };
 		E1BBA6A9230BEC8100DF29B0 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BBA6A8230BEC8100DF29B0 /* PostViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		E13D5287230A70560078CFAB /* MessageStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MessageStoryboard.storyboard; sourceTree = "<group>"; };
 		E13D5289230A70650078CFAB /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		E16E0CC1230D217A00F4A95D /* PostCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewController.swift; sourceTree = "<group>"; };
+		E16E0CC3230D2C0F00F4A95D /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
 		E1BBA6A8230BEC8100DF29B0 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		E3B991FC62FB6DFC9BC87B2E /* Pods-finalTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-finalTask.release.xcconfig"; path = "Target Support Files/Pods-finalTask/Pods-finalTask.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,6 +115,7 @@
 				E13B28F223094B1D002B67D9 /* LaunchScreen.storyboard */,
 				E13B28F523094B1D002B67D9 /* Info.plist */,
 				E16E0CC1230D217A00F4A95D /* PostCellViewController.swift */,
+				E16E0CC3230D2C0F00F4A95D /* testViewController.swift */,
 			);
 			path = finalTask;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				E13D5282230A702A0078CFAB /* ProfileViewController.swift in Sources */,
 				E13B28EC23094B1D002B67D9 /* ViewController.swift in Sources */,
 				E1BBA6A9230BEC8100DF29B0 /* PostViewController.swift in Sources */,
+				E16E0CC4230D2C0F00F4A95D /* testViewController.swift in Sources */,
 				E13B28EA23094B1D002B67D9 /* AppDelegate.swift in Sources */,
 				E16E0CC2230D217A00F4A95D /* PostCellViewController.swift in Sources */,
 				E13D5286230A70470078CFAB /* MapViewController.swift in Sources */,
