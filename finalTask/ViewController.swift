@@ -15,6 +15,7 @@
 
 import UIKit
 import GuillotineMenu   // サイドメニューが出てくるものをインポート
+import Material     // マテリアルをインポート
 
 
 // テーブルビューとサイドメニューのクラスを追加
@@ -23,6 +24,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // テーブルビュー。タグ付けしている
     // 1から順番にアイコン・場所・日時・コメント・写真
     @IBOutlet weak var tableView: UITableView!
+
+    // 投稿ボタンのoutolet
+    @IBOutlet weak var sendButtonOutlet: UIButton!
 
     // ライブラリサイドメニューを使うためのもの
 //    let mainViewController = storyboard!.instantiateViewController(withIdentifier: "MainViewController")
@@ -42,6 +46,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.dataSource = self
         tableView.viewWithTag(6)?.isHidden = true
 
+        // アイコン丸くする
+        self.sendButtonOutlet.layer.cornerRadius = 30
+        self.sendButtonOutlet.layer.masksToBounds = true
+
+        // ナビゲーションバーの線を消す
+        navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
+
+
+    }
+
+    // 最初 + 遷移から戻ったとき
+    override func viewWillAppear(_ animated: Bool) {
+        // ナビゲーションバーの枠を消す
+        let navigationBar = navigationController!.navigationBar
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationBar.shadowImage = UIImage()
     }
 
     // セルの数

@@ -12,6 +12,7 @@ target 'finalTask' do
   pod 'LTMorphingLabel'
   pod 'JSQMessagesViewController'
   pod 'IQKeyboardManagerSwift'
+  pod 'Material', '~> 3.1.0'
 
 end
 

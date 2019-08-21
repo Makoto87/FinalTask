@@ -117,10 +117,17 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="twH-sN-fK1">
-                                <rect key="frame" x="238" y="458" width="62" height="30"/>
-                                <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="アイコン"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="twH-sN-fK1" customClass="FABButton" customModule="Material">
+                                <rect key="frame" x="250" y="438" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.27402611301369861" green="0.62135479616371492" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="twH-sN-fK1" secondAttribute="height" multiplier="1:1" id="Ico-68-G4j"/>
+                                    <constraint firstAttribute="width" constant="50" id="kAA-eB-vjt"/>
+                                </constraints>
+                                <state key="normal" image="ランチ アイコン"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isMotionEnabled" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="sendButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bvX-Tn-8tC"/>
                                 </connections>
@@ -142,6 +149,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="R4I-wY-bxu"/>
                     <connections>
+                        <outlet property="sendButtonOutlet" destination="twH-sN-fK1" id="9LD-Io-7RS"/>
                         <outlet property="tableView" destination="zvG-Zk-2NJ" id="o4h-vl-y9J"/>
                         <segue destination="wEU-JL-cx1" kind="modal" identifier="sendPost" id="WU9-SP-5hK"/>
                         <segue destination="fsx-RH-mAa" kind="show" identifier="toDetailSegue" id="vkT-v5-sYe"/>
@@ -151,10 +159,10 @@
             </objects>
             <point key="canvasLocation" x="2131.875" y="113.02816901408451"/>
         </scene>
-        <!--View Controller-->
+        <!--Post Cell View Controller-->
         <scene sceneID="P2H-tF-Haa">
             <objects>
-                <viewController id="fsx-RH-mAa" sceneMemberID="viewController">
+                <viewController id="fsx-RH-mAa" customClass="PostCellViewController" customModule="finalTask" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c5m-eR-SwM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -391,4 +399,7 @@
             <point key="canvasLocation" x="1134.375" y="113.02816901408451"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ランチ アイコン" width="225" height="225"/>
+    </resources>
 </document>
