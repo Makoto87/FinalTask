@@ -17,9 +17,13 @@ import UIKit
 // チャット用画面
 class MessageViewController: ViewController {
 
+    @IBOutlet weak var searchTableView: UITableView!
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+
     }
 
 //    // セルの数

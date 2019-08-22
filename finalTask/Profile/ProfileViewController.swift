@@ -52,13 +52,19 @@ class ProfileViewController: UIViewController {
         self.changeButtonOutlet.layer.cornerRadius = 10
         self.changeButtonOutlet.layer.masksToBounds = true
 
+        // ナビゲーションバーを隠す
+        navigationController?.isNavigationBarHidden = true
+
     }
 
     // 戻るボタン
     @IBAction func backButton(_ sender: Any) {
+
     }
     // プロフィール変更ボタン
     @IBAction func changeProfileButton(_ sender: Any) {
+        // セグエで画面遷移。投稿の詳細を見る画面へ
+        performSegue(withIdentifier: "toProfileChangeSegue", sender: nil)
     }
 
 
