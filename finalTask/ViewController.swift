@@ -28,6 +28,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var sendButtonOutlet: UIButton!
     // タブバーの画像を紐付け
     @IBOutlet weak var timelineImage: UITabBarItem!
+    // いいねがついているか判断するもの
+    var goodBool: Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +38,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
 
-        // アイコン丸くする
+        // 投稿ボタン丸くする
         self.sendButtonOutlet.layer.cornerRadius = 30
         self.sendButtonOutlet.layer.masksToBounds = true
 
@@ -45,6 +47,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // セルの数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 30
+    }
+
+    // セルの高さを動的にする
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension //自動設定
     }
 
     // セルの設定
@@ -56,7 +63,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         postImageView.isHidden = true
         // アイコンを表示するところ
         let profileImageView = cell.viewWithTag(1) as! UIImageView
-        profileImageView.image = #imageLiteral(resourceName: "humburger")
+        profileImageView.image = #imageLiteral(resourceName: "splashRogoRemake")
+        // アイコンを丸くする
+        profileImageView.layer.cornerRadius = 30
+        profileImageView.layer.masksToBounds = true
+        // 名前の表示
+        let nameLabel = cell.viewWithTag(2) as! UILabel
+        nameLabel.text = "堀田 真"
+        // 場所の表示
+        let placeLabel = cell.viewWithTag(3) as! UILabel
+        placeLabel.text = "新宿"
+        // 日時の表示
+        let categoryLabel = cell.viewWithTag(4) as! UILabel
+        categoryLabel.text = "今夜"
+        // コメントの表示
+        let commentLabel = cell.viewWithTag(5) as! UILabel
+        commentLabel.text = "授業後にガッツリ食べたいです!"
+        
 
         return cell
     }
@@ -71,5 +94,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func sendButton(_ sender: Any) {
         performSegue(withIdentifier: "sendPost", sender: nil)
     }
+
+    // いいねボタン
+    @IBAction func goodButton(_ sender: UIButton) {
+        // いいねがついていなかったら
+        if goodBool == true { sender.setTitleColor(UIColor.magenta, for: .normal)       // ピンク色になる
+            goodBool = false    // いいねがついた状態を表す
+        } else {
+            sender.setTitleColor(UIColor.black, for: .normal)       // 黒色になる
+            goodBool = true    // いいねがない状態に変わる
+        }
+
+    }
+
+    // メッセージボタン
+    @IBAction func sendMessageButtun(_ sender: Any) {
+    }
+
+
 }
 

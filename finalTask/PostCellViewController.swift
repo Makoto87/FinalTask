@@ -9,25 +9,45 @@
 import UIKit
 
 class PostCellViewController: UIViewController {
+    // アイコンの写真image
+    @IBOutlet weak var iconImageView: UIImageView!
+    // 名前のラベル
+    @IBOutlet weak var nameLabel: UILabel!
+    // 場所のラベル
+    @IBOutlet weak var placeLabel: UILabel!
+    // 日時のラベル
+    @IBOutlet weak var timeLabel: UILabel!
+    // ジャンルのラベル
+    @IBOutlet weak var categoryLabel: UILabel!
+    // 値段のラベル
+    @IBOutlet weak var priceLabel: UILabel!
+    // コメントラベル
+    @IBOutlet weak var commentLabel: UILabel!
+    // 写真載せるところ
+    @IBOutlet weak var foodImageView: UIImageView!
+
+    var goodBool: Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        let navigationBar = navigationController!.navigationBar
-//        navigationBar.setBackgroundImage(nil, for: .default)
-//        navigationBar.shadowImage = nil
+        foodImageView.isHidden = true
 
+    }
+
+    // いいねボタン
+    @IBAction func goodButton(_ sender: UIButton) {
+        // いいねがついていなかったら
+        if goodBool == true { sender.setTitleColor(UIColor.magenta, for: .normal)       // ピンク色になる
+            goodBool = false    // いいねがついた状態を表す
+        } else {
+            sender.setTitleColor(UIColor.black, for: .normal)       // 黒色になる
+            goodBool = true    // いいねがない状態に変わる
+        }
+    }
+    // メッセージボタン
+    @IBAction func messageButton(_ sender: UIButton) {
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

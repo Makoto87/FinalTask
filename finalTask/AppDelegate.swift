@@ -14,8 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().barTintColor = UIColor.orange
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().isTranslucent = false
 
         IQKeyboardManager.shared.enable = true
         // Override point for customization after application launch.
