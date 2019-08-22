@@ -19,7 +19,7 @@ import Material     // マテリアルをインポート
 
 // テーブルビューとサイドメニューのクラスを追加
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate {
-
+    
     // テーブルビュー。タグ付けしている
     // 1 アイコン・2 名前・3 場所・4 日時・5 コメント・6 写真
     @IBOutlet weak var tableView: UITableView!

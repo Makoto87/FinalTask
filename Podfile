@@ -8,11 +8,8 @@ target 'finalTask' do
   # Pods for finalTask
   pod 'IBAnimatable'
   pod 'TransitionButton'
-  pod 'LTMorphingLabel'
-  pod 'JSQMessagesViewController'
   pod 'IQKeyboardManagerSwift'
   pod 'Material', '~> 3.1.0'
-  pod 'CBFlashyTabBarController'
 
 
 end

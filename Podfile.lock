@@ -1,11 +1,6 @@
 PODS:
-  - CBFlashyTabBarController (0.8.3)
   - IBAnimatable (6.0.0)
   - IQKeyboardManagerSwift (6.4.1)
-  - JSQMessagesViewController (7.3.5):
-    - JSQSystemSoundPlayer (~> 2.0.1)
-  - JSQSystemSoundPlayer (2.0.1)
-  - LTMorphingLabel (0.7.0)
   - Material (3.1.6):
     - Material/Core (= 3.1.6)
   - Material/Core (3.1.6):
@@ -16,37 +11,26 @@ PODS:
   - TransitionButton (0.5.2)
 
 DEPENDENCIES:
-  - CBFlashyTabBarController
   - IBAnimatable
   - IQKeyboardManagerSwift
-  - JSQMessagesViewController
-  - LTMorphingLabel
   - Material (~> 3.1.0)
   - TransitionButton
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - CBFlashyTabBarController
     - IBAnimatable
     - IQKeyboardManagerSwift
-    - JSQMessagesViewController
-    - JSQSystemSoundPlayer
-    - LTMorphingLabel
     - Material
     - Motion
     - TransitionButton
 
 SPEC CHECKSUMS:
-  CBFlashyTabBarController: bc6b11dd4cbc9b54785c8944156e2f4d4f03b088
   IBAnimatable: d49f9fee0c401b5b08d31b77256b77fb067e0e92
   IQKeyboardManagerSwift: d2df660d0b8d64a15cb2537c9ff303213fa515b2
-  JSQMessagesViewController: 6587f56aedbcb150a8ba1d968e1ef58b1bc758b7
-  JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
-  LTMorphingLabel: 22147fb1ec2b0306537ccc348b36ea8617179b03
   Material: 9b30613deb1b79487eeede5e4f90cbff084311ea
   Motion: f115b33f36cc52472a25a965daa89b3859817de0
   TransitionButton: fb271583d9c9e4bb116b97103047e5157653f233
 
-PODFILE CHECKSUM: d4b1cbffec91adc740c71303e4a67c578851f398
+PODFILE CHECKSUM: cbcff51a2447e055216ed649711ac45d24ce272a
 
 COCOAPODS: 1.7.5

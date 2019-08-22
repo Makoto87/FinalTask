@@ -1,10 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-finalTask/Pods-finalTask-frameworks.sh
-${BUILT_PRODUCTS_DIR}/CBFlashyTabBarController/CBFlashyTabBarController.framework
 ${BUILT_PRODUCTS_DIR}/IBAnimatable/IBAnimatable.framework
 ${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework
-${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework
-${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework
-${BUILT_PRODUCTS_DIR}/LTMorphingLabel/LTMorphingLabel.framework
 ${BUILT_PRODUCTS_DIR}/Material/Material.framework
 ${BUILT_PRODUCTS_DIR}/Motion/Motion.framework
 ${BUILT_PRODUCTS_DIR}/TransitionButton/TransitionButton.framework

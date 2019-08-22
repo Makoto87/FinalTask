@@ -31,7 +31,7 @@ class SplashViewController: UIViewController {
         // storyboardのfileの特定
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         // 移動先のncをインスタンス化。ナビゲーションバーを表示させるために無理やり作ってる
-        let nc = storyboard.instantiateInitialViewController() as! UINavigationController
+        let nc = storyboard.instantiateInitialViewController() as! UITabBarController
         self.present(nc, animated: true)
     }
 }
