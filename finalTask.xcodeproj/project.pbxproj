@@ -26,7 +26,7 @@
 		E16E0CC2230D217A00F4A95D /* PostCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16E0CC1230D217A00F4A95D /* PostCellViewController.swift */; };
 		E16E0CC4230D2C0F00F4A95D /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16E0CC3230D2C0F00F4A95D /* testViewController.swift */; };
 		E1B22051230D500E008533DF /* What.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1B22050230D500E008533DF /* What.storyboard */; };
-		E1B22053230D5026008533DF /* WhatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B22052230D5026008533DF /* WhatViewController.swift */; };
+		E1B22053230D5026008533DF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B22052230D5026008533DF /* SearchViewController.swift */; };
 		E1BBA6A9230BEC8100DF29B0 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BBA6A8230BEC8100DF29B0 /* PostViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,7 +55,7 @@
 		E16E0CC1230D217A00F4A95D /* PostCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewController.swift; sourceTree = "<group>"; };
 		E16E0CC3230D2C0F00F4A95D /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
 		E1B22050230D500E008533DF /* What.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = What.storyboard; sourceTree = "<group>"; };
-		E1B22052230D5026008533DF /* WhatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WhatViewController.swift; path = /Users/vertex20/Downloads/suparutacamp/finalTask/finalTask/What/WhatViewController.swift; sourceTree = "<absolute>"; };
+		E1B22052230D5026008533DF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = /Users/vertex20/Downloads/suparutacamp/finalTask/finalTask/What/SearchViewController.swift; sourceTree = "<absolute>"; };
 		E1BBA6A8230BEC8100DF29B0 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		E3B991FC62FB6DFC9BC87B2E /* Pods-finalTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-finalTask.release.xcconfig"; path = "Target Support Files/Pods-finalTask/Pods-finalTask.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -169,7 +169,7 @@
 			children = (
 				E1B22050230D500E008533DF /* What.storyboard */,
 				E143192C230E183D00E732DE /* WhatViewController.swift */,
-				E1B22052230D5026008533DF /* WhatViewController.swift */,
+				E1B22052230D5026008533DF /* SearchViewController.swift */,
 			);
 			path = What;
 			sourceTree = "<group>";
@@ -319,7 +319,7 @@
 				E16E0CC4230D2C0F00F4A95D /* testViewController.swift in Sources */,
 				E13B28EA23094B1D002B67D9 /* AppDelegate.swift in Sources */,
 				E16E0CC2230D217A00F4A95D /* PostCellViewController.swift in Sources */,
-				E1B22053230D5026008533DF /* WhatViewController.swift in Sources */,
+				E1B22053230D5026008533DF /* SearchViewController.swift in Sources */,
 				E13D5286230A70470078CFAB /* MapViewController.swift in Sources */,
 				E134E77F230B6F8C00566175 /* CategoryViewController.swift in Sources */,
 				E13D528A230A70650078CFAB /* MessageViewController.swift in Sources */,

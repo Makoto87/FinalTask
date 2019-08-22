@@ -12,6 +12,7 @@
 // ボタン押すときのエフェクト https://github.com/okmr-d/DOFavoriteButton
 // タブバー  https://github.com/Cuberto/flashy-tabbar
 // ナビゲーションバー https://qiita.com/homyu/items/1365c8f8c3be4465df87
+// ナビとタブバー https://qiita.com/yamatatsu10969/items/b737f21fa162c998fd36
 
 import UIKit
 import Material     // マテリアルをインポート

@@ -198,7 +198,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="R4I-wY-bxu">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="kxY-hf-J8H"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="icons8-menu-24" id="kxY-hf-J8H"/>
                     </navigationItem>
                     <connections>
                         <outlet property="sendButtonOutlet" destination="twH-sN-fK1" id="9LD-Io-7RS"/>
@@ -475,11 +475,11 @@
             </objects>
             <point key="canvasLocation" x="2093" y="502"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--home-->
         <scene sceneID="A8e-0U-uBh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0H8-Ot-XPW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" selectedImage="メッセージ アイコン" id="9nO-R7-2rr"/>
+                    <tabBarItem key="tabBarItem" title="home" image="icons8-home-24" id="9nO-R7-2rr"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8J2-gX-yye">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -496,7 +496,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="メッセージ アイコン" width="225" height="225"/>
+        <image name="icons8-home-24" width="24" height="24"/>
+        <image name="icons8-menu-24" width="24" height="24"/>
         <image name="ランチ アイコン" width="225" height="225"/>
     </resources>
     <inferredMetricsTieBreakers>

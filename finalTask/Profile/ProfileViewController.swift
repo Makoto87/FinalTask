@@ -8,28 +8,58 @@
 
 import UIKit
 
+// プロフィールのクラス
 class ProfileViewController: UIViewController {
+    // バック画像
+    @IBOutlet weak var backImageView: UIImageView!
+    // アイコン画像
+    @IBOutlet weak var iconImageView: UIImageView!
+    // 名前のラベル
+    @IBOutlet weak var nameLabel: UILabel!
+    // 年齢のラベル
+    @IBOutlet weak var ageLabel: UILabel!
+    // コメントのラベル
+    @IBOutlet weak var commentLabel: UILabel!
+    // 戻るボタン丸くするためのもの
+    @IBOutlet weak var backButtonOutlet: UIButton!
+    // 変更ボタン丸くするためのもの
+    @IBOutlet weak var changeButtonOutlet: UIButton!
+
+
+
     // テーブルビュー紐付け
     @IBOutlet weak var profileTableview: UITableView!
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 試し。アイコンとバックの画像
+        backImageView.image = #imageLiteral(resourceName: "カレー横長")
+        iconImageView.image = #imageLiteral(resourceName: "ランチ アイコン")
+        // 試し。名前と年齢とコメント書き込み
+        nameLabel.text = "堀田 真"
+        ageLabel.text = "22歳"
+        commentLabel.text = "美味しいご飯食べに行きましょう〜"
 
-        profileTableview.layer.borderColor = #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 1)
-        profileTableview.separatorColor = #colorLiteral(red: 0.1921568662, green: 0.007843137719, blue: 0.09019608051, alpha: 1)
-        // Do any additional setup after loading the view.
+        // テーブルビューの線の色
+        profileTableview.separatorColor = .orange
+        profileTableview.backgroundColor = #colorLiteral(red: 1, green: 0.9725007454, blue: 0.9326803989, alpha: 1)
+
+        // 戻るボタン丸くする
+        self.backButtonOutlet.layer.cornerRadius = 10
+        self.backButtonOutlet.layer.masksToBounds = true
+        // 変更ボタン丸くする
+        self.changeButtonOutlet.layer.cornerRadius = 10
+        self.changeButtonOutlet.layer.masksToBounds = true
+
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // 戻るボタン
+    @IBAction func backButton(_ sender: Any) {
     }
-    */
+    // プロフィール変更ボタン
+    @IBAction func changeProfileButton(_ sender: Any) {
+    }
+
 
 }
