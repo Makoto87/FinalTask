@@ -1,20 +1,17 @@
 //
-//  testViewController.swift
-//  finalTask
+//  WhatViewController.swift
+//  
 //
 //  Created by VERTEX20 on 2019/08/21.
-//  Copyright © 2019 VERTEX20. All rights reserved.
 //
 
 import UIKit
 
-class testViewController: UIViewController {
+class WhatViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // ナビゲーションバーの線を消す
-//        tabBarController?.tabBar.clipsToBounds = true
         // Do any additional setup after loading the view.
     }
     

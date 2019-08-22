@@ -13,9 +13,9 @@ class PostCellViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let navigationBar = navigationController!.navigationBar
-        navigationBar.setBackgroundImage(nil, for: .default)
-        navigationBar.shadowImage = nil
+//        let navigationBar = navigationController!.navigationBar
+//        navigationBar.setBackgroundImage(nil, for: .default)
+//        navigationBar.shadowImage = nil
 
     }
     

@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--message-->
+        <!--Message View Controller-->
         <scene sceneID="TQY-cq-vsv">
             <objects>
                 <viewController storyboardIdentifier="Message" id="f6A-hy-Ugh" customClass="MessageViewController" customModule="finalTask" customModuleProvider="target" sceneMemberID="viewController">
@@ -42,7 +42,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pso-kT-sMO"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="message" selectedImage="メッセージ アイコン" id="lzI-be-aKf"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="lzI-be-aKf"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s0K-de-yAE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -50,7 +50,4 @@
             <point key="canvasLocation" x="-1729" y="335"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="メッセージ アイコン" width="225" height="225"/>
-    </resources>
 </document>

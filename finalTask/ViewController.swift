@@ -14,7 +14,6 @@
 // ナビゲーションバー https://qiita.com/homyu/items/1365c8f8c3be4465df87
 
 import UIKit
-import GuillotineMenu   // サイドメニューが出てくるものをインポート
 import Material     // マテリアルをインポート
 
 
@@ -22,21 +21,13 @@ import Material     // マテリアルをインポート
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate {
 
     // テーブルビュー。タグ付けしている
-    // 1から順番にアイコン・場所・日時・コメント・写真
+    // 1 アイコン・2 名前・3 場所・4 日時・5 コメント・6 写真
     @IBOutlet weak var tableView: UITableView!
 
     // 投稿ボタンのoutolet
     @IBOutlet weak var sendButtonOutlet: UIButton!
-
-    // ライブラリサイドメニューを使うためのもの
-//    let mainViewController = storyboard!.instantiateViewController(withIdentifier: "MainViewController")
-//    mainViewController.modalPresentationStyle = .custom
-//    mainViewController.transitioningDelegate = self
-//
-//    presentationAnimator.supportView = navigationController!.navigationBar
-//    presentationAnimator.presentButton = sender
-//    present(menuViewController, animated: true, completion: nil)
-
+    // タブバーの画像を紐付け
+    @IBOutlet weak var timelineImage: UITabBarItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,23 +35,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // tableviewの delegateとdatasourseを接続
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.viewWithTag(6)?.isHidden = true
 
         // アイコン丸くする
         self.sendButtonOutlet.layer.cornerRadius = 30
         self.sendButtonOutlet.layer.masksToBounds = true
 
-        // ナビゲーションバーの線を消す
-        navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
-
-    }
-
-    // 最初 + 遷移から戻ったとき
-    override func viewWillAppear(_ animated: Bool) {
-        // ナビゲーションバーの枠を消す
-        let navigationBar = navigationController!.navigationBar
-        navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationBar.shadowImage = UIImage()
     }
 
     // セルの数
@@ -72,53 +51,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-
+        // 投稿画像がなかったらなくす
+        let postImageView = cell.viewWithTag(6) as! UIImageView
+        postImageView.isHidden = true
+        // アイコンを表示するところ
+        let profileImageView = cell.viewWithTag(1) as! UIImageView
+        profileImageView.image = #imageLiteral(resourceName: "humburger")
 
         return cell
     }
 
     // セルの遷移設定
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        // セグエで画面遷移
+        // セグエで画面遷移。投稿の詳細を見る画面へ
         performSegue(withIdentifier: "toDetailSegue", sender: nil)
     }
 
     // 投稿ボタン。画面遷移する
     @IBAction func sendButton(_ sender: Any) {
-
         performSegue(withIdentifier: "sendPost", sender: nil)
-
     }
-
-//    // 遷移するときに情報を送る処理
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard segue.identifier == "sendPost", let svc = segue.destination as? PostViewController  else{
-//            // destinationはUIの上位互換のようなもの
-//            // identifierがnameSegue かつ destinationがprofileControllerなら動く。asは=のようなもの。
-//            return
-//        }
-//
-//    }
-
-
-
-
-
-
-
-
 }
 
-//// サイドメニューを使うためのメソッド
-//extension ViewController: UIViewControllerTransitioningDelegate {
-//
-//    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        presentationAnimator.mode = .presentation
-//        return presentationAnimator
-//    }
-//
-//    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        presentationAnimator.mode = .dismissal
-//        return presentationAnimator
-//}

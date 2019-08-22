@@ -8,7 +8,6 @@ target 'finalTask' do
   # Pods for finalTask
   pod 'IBAnimatable'
   pod 'TransitionButton'
-  pod 'GuillotineMenu'
   pod 'LTMorphingLabel'
   pod 'JSQMessagesViewController'
   pod 'IQKeyboardManagerSwift'

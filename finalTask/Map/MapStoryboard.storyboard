@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--map-->
+        <!--Map View Controller-->
         <scene sceneID="Jpr-xv-FxF">
             <objects>
                 <viewController storyboardIdentifier="Map" id="sOz-bp-UZN" customClass="MapViewController" customModule="finalTask" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,7 +31,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="F1S-N7-PXG"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="map" selectedImage="map アイコン" id="wUh-BF-9Vd"/>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="wUh-BF-9Vd"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F4F-L7-npc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -39,7 +39,4 @@
             <point key="canvasLocation" x="-70" y="52"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="map アイコン" width="225" height="225"/>
-    </resources>
 </document>

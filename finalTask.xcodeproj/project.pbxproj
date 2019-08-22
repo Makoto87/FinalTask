@@ -21,8 +21,12 @@
 		E13D5286230A70470078CFAB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13D5285230A70470078CFAB /* MapViewController.swift */; };
 		E13D5288230A70560078CFAB /* MessageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13D5287230A70560078CFAB /* MessageStoryboard.storyboard */; };
 		E13D528A230A70650078CFAB /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13D5289230A70650078CFAB /* MessageViewController.swift */; };
+		E143192E230E18BD00E732DE /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E143192D230E18BD00E732DE /* SplashViewController.swift */; };
+		E1431930230E18CB00E732DE /* SplashStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E143192F230E18CB00E732DE /* SplashStoryboard.storyboard */; };
 		E16E0CC2230D217A00F4A95D /* PostCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16E0CC1230D217A00F4A95D /* PostCellViewController.swift */; };
 		E16E0CC4230D2C0F00F4A95D /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16E0CC3230D2C0F00F4A95D /* testViewController.swift */; };
+		E1B22051230D500E008533DF /* What.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1B22050230D500E008533DF /* What.storyboard */; };
+		E1B22053230D5026008533DF /* WhatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B22052230D5026008533DF /* WhatViewController.swift */; };
 		E1BBA6A9230BEC8100DF29B0 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BBA6A8230BEC8100DF29B0 /* PostViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,8 +49,13 @@
 		E13D5285230A70470078CFAB /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		E13D5287230A70560078CFAB /* MessageStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MessageStoryboard.storyboard; sourceTree = "<group>"; };
 		E13D5289230A70650078CFAB /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		E143192C230E183D00E732DE /* WhatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WhatViewController.swift; path = /Users/vertex20/Downloads/suparutacamp/finalTask/finalTask/What/WhatViewController.swift; sourceTree = "<absolute>"; };
+		E143192D230E18BD00E732DE /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		E143192F230E18CB00E732DE /* SplashStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashStoryboard.storyboard; sourceTree = "<group>"; };
 		E16E0CC1230D217A00F4A95D /* PostCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewController.swift; sourceTree = "<group>"; };
 		E16E0CC3230D2C0F00F4A95D /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
+		E1B22050230D500E008533DF /* What.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = What.storyboard; sourceTree = "<group>"; };
+		E1B22052230D5026008533DF /* WhatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WhatViewController.swift; path = /Users/vertex20/Downloads/suparutacamp/finalTask/finalTask/What/WhatViewController.swift; sourceTree = "<absolute>"; };
 		E1BBA6A8230BEC8100DF29B0 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		E3B991FC62FB6DFC9BC87B2E /* Pods-finalTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-finalTask.release.xcconfig"; path = "Target Support Files/Pods-finalTask/Pods-finalTask.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,11 +119,11 @@
 				E13B28E923094B1D002B67D9 /* AppDelegate.swift */,
 				E13B28EB23094B1D002B67D9 /* ViewController.swift */,
 				E1BBA6A8230BEC8100DF29B0 /* PostViewController.swift */,
-				E13B28ED23094B1D002B67D9 /* Main.storyboard */,
-				E13B28F023094B1D002B67D9 /* Assets.xcassets */,
-				E13B28F223094B1D002B67D9 /* LaunchScreen.storyboard */,
-				E13B28F523094B1D002B67D9 /* Info.plist */,
 				E16E0CC1230D217A00F4A95D /* PostCellViewController.swift */,
+				E13B28ED23094B1D002B67D9 /* Main.storyboard */,
+				E1431931230E214400E732DE /* Splash */,
+				E13B28F023094B1D002B67D9 /* Assets.xcassets */,
+				E13B28F523094B1D002B67D9 /* Info.plist */,
 				E16E0CC3230D2C0F00F4A95D /* testViewController.swift */,
 			);
 			path = finalTask;
@@ -158,8 +167,21 @@
 		E13D527E230A70000078CFAB /* What */ = {
 			isa = PBXGroup;
 			children = (
+				E1B22050230D500E008533DF /* What.storyboard */,
+				E143192C230E183D00E732DE /* WhatViewController.swift */,
+				E1B22052230D5026008533DF /* WhatViewController.swift */,
 			);
 			path = What;
+			sourceTree = "<group>";
+		};
+		E1431931230E214400E732DE /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				E13B28F223094B1D002B67D9 /* LaunchScreen.storyboard */,
+				E143192D230E18BD00E732DE /* SplashViewController.swift */,
+				E143192F230E18CB00E732DE /* SplashStoryboard.storyboard */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		E4F9CA36D8D3C0E29B21638D /* Frameworks */ = {
@@ -232,7 +254,9 @@
 			files = (
 				E13B28F423094B1D002B67D9 /* LaunchScreen.storyboard in Resources */,
 				E13D5280230A70190078CFAB /* ProfileStoryboard.storyboard in Resources */,
+				E1B22051230D500E008533DF /* What.storyboard in Resources */,
 				E134E781230B6FA300566175 /* CategoryStoryboard.storyboard in Resources */,
+				E1431930230E18CB00E732DE /* SplashStoryboard.storyboard in Resources */,
 				E13B28F123094B1D002B67D9 /* Assets.xcassets in Resources */,
 				E13B28EF23094B1D002B67D9 /* Main.storyboard in Resources */,
 				E13D5284230A70380078CFAB /* MapStoryboard.storyboard in Resources */,
@@ -295,9 +319,11 @@
 				E16E0CC4230D2C0F00F4A95D /* testViewController.swift in Sources */,
 				E13B28EA23094B1D002B67D9 /* AppDelegate.swift in Sources */,
 				E16E0CC2230D217A00F4A95D /* PostCellViewController.swift in Sources */,
+				E1B22053230D5026008533DF /* WhatViewController.swift in Sources */,
 				E13D5286230A70470078CFAB /* MapViewController.swift in Sources */,
 				E134E77F230B6F8C00566175 /* CategoryViewController.swift in Sources */,
 				E13D528A230A70650078CFAB /* MessageViewController.swift in Sources */,
+				E143192E230E18BD00E732DE /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
