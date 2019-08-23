@@ -24,6 +24,22 @@ class MenuViewController: UIViewController {
         nameLabel.text = "堀田 真"
     }
 
+    // ほかに画面行ったときに自動で閉まる
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        UIView.animate(
+            withDuration: 0.2,
+            delay: 0,
+            options: .curveEaseIn,
+            animations: {
+                self.menuView.layer.position.x = -self.menuView.frame.width
+        },
+            completion: { bool in
+                self.dismiss(animated: true, completion: nil)
+        }
+        )
+    }
+
     // メニュービューを出すためのメソッド
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
