@@ -9,13 +9,14 @@
 // JSQMessagesViewController    をチャット機能として使う
 // UITableViewCellを追加していくことでタイムライン表示している。
 // 表示する文字数によってはTableViewCellに配置しているUILabelが複数行表示になるため、cellForRowAtのタイミングでTableViewCellに計算済みのCellの高さを設定する。
+// タップルみたいに「マッチした人とメッセージを贈り合ってみよう」と表示する
 
 
 import UIKit
 //import JSQMessagesViewController
 
 // チャット用画面
-class MessageViewController: ViewController {
+class MessageViewController: UIViewController {
 
     @IBOutlet weak var searchTableView: UITableView!
 

@@ -13,17 +13,20 @@
 // タブバー  https://github.com/Cuberto/flashy-tabbar
 // ナビゲーションバー https://qiita.com/homyu/items/1365c8f8c3be4465df87
 // ナビとタブバー https://qiita.com/yamatatsu10969/items/b737f21fa162c998fd36
+// テーブルビュー2つ使う場合  https://qiita.com/naoto_mitsuya/items/62b5c36aafbc0f256c48
 
 import UIKit
 import Material     // マテリアルをインポート
 
 
 // テーブルビューとサイドメニューのクラスを追加
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate {
+class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // テーブルビュー。タグ付けしている
     // 1 アイコン・2 名前・3 場所・4 日時・5 コメント・6 写真
     @IBOutlet weak var tableView: UITableView!
+    // 通知用テーブルビュー
+    @IBOutlet weak var tableView2: UITableView!
 
     // 投稿ボタンのoutolet
     @IBOutlet weak var sendButtonOutlet: UIButton!
@@ -31,17 +34,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var timelineImage: UITabBarItem!
     // いいねがついているか判断するもの
     var goodBool: Bool = true
+    // 通知画面が表示されているか判断するもの
+    var alertBool: Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // tableviewの delegateとdatasourseを接続
+//         tableviewの delegateとdatasourseを接続
         tableView.delegate = self
         tableView.dataSource = self
+
+//        self.view = tableView
 
         // 投稿ボタン丸くする
         self.sendButtonOutlet.layer.cornerRadius = 30
         self.sendButtonOutlet.layer.masksToBounds = true
+
+        // 通知画面を隠す
+        self.tableView2.isHidden = true
 
     }
 
@@ -110,6 +120,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     // メッセージボタン
     @IBAction func sendMessageButtun(_ sender: Any) {
+    }
+    // 通知ボタン
+    @IBAction func alertButton(_ sender: Any) {
+        // まだ通知画面が出ていなかったとき
+        if alertBool == true {
+        // ボタンを押した瞬間tableViewが表れる
+        self.tableView2.isHidden = false
+            // 通知画面出したという証拠
+            alertBool = false
+        // 通知画面が出ているとき
+        } else {
+            // tableViewを消す
+            self.tableView2.isHidden = true
+            // 通知画面消したという証拠
+            alertBool = true
+
+        }
     }
 
 

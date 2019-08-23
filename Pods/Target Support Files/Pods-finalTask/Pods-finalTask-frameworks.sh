@@ -165,14 +165,12 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Material/Material.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Motion/Motion.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/TransitionButton/TransitionButton.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/IBAnimatable/IBAnimatable.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Material/Material.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Motion/Motion.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/TransitionButton/TransitionButton.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

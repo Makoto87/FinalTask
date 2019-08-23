@@ -8,13 +8,11 @@ PODS:
   - Motion (3.1.1):
     - Motion/Core (= 3.1.1)
   - Motion/Core (3.1.1)
-  - TransitionButton (0.5.2)
 
 DEPENDENCIES:
   - IBAnimatable
   - IQKeyboardManagerSwift
   - Material (~> 3.1.0)
-  - TransitionButton
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -22,15 +20,13 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - Material
     - Motion
-    - TransitionButton
 
 SPEC CHECKSUMS:
   IBAnimatable: d49f9fee0c401b5b08d31b77256b77fb067e0e92
   IQKeyboardManagerSwift: d2df660d0b8d64a15cb2537c9ff303213fa515b2
   Material: 9b30613deb1b79487eeede5e4f90cbff084311ea
   Motion: f115b33f36cc52472a25a965daa89b3859817de0
-  TransitionButton: fb271583d9c9e4bb116b97103047e5157653f233
 
-PODFILE CHECKSUM: cbcff51a2447e055216ed649711ac45d24ce272a
+PODFILE CHECKSUM: 2270993a75a79c9252efbd1500b949d4f4ef427f
 
 COCOAPODS: 1.7.5

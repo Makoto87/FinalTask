@@ -7,7 +7,6 @@ target 'finalTask' do
 
   # Pods for finalTask
   pod 'IBAnimatable'
-  pod 'TransitionButton'
   pod 'IQKeyboardManagerSwift'
   pod 'Material', '~> 3.1.0'
 

@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/vertex20/Downloads/suparutacamp/finalTask/finalTask/What/WhatViewController.swift">
-   </FileRef>
-   <FileRef
-      location = "absolute:/Users/vertex20/Downloads/suparutacamp/finalTask/finalTask/What/WhatViewController.swift">
-   </FileRef>
-   <FileRef
       location = "group:finalTask.xcodeproj">
    </FileRef>
    <FileRef
