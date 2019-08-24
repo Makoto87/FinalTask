@@ -90,6 +90,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         // コメントの表示
         let commentLabel = cell.viewWithTag(5) as! UILabel
         commentLabel.text = "授業後にガッツリ食べたいです!"
+        //contentsのサイズに合わせてobujectのサイズを変える
+        commentLabel.sizeToFit()
+        //単語の途中で改行されないようにする
+//        commentLabel.lineBreakMode = NSLineBreakByWordWrapping
+
         
 
         return cell

@@ -78,6 +78,24 @@ class MenuViewController: UIViewController {
             }
         }
     }
+
+    // 画面遷移するためのメソッド。今回はプロフィール
+    func toOtherController(){
+        // storyboardのfileの特定
+        let storyboard: UIStoryboard = UIStoryboard(name: "ProfileStoryboard", bundle: nil)
+        // 移動先のvcをインスタンス化
+        let vc = storyboard.instantiateViewController(withIdentifier: "Profile")
+        // 画面遷移のアニメーション追加
+        vc.modalTransitionStyle = .crossDissolve
+        self.present(vc, animated: true)
+    }
+
+    // プロフィールへ遷移するボタン
+    @IBAction func profileButton(_ sender: Any) {
+        self.toOtherController()    // 画面遷移するためのメソッド
+        
+    }
+
 }
 
 

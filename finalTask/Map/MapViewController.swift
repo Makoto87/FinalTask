@@ -10,18 +10,14 @@ import UIKit
 import CoreLocation     // 地図に必要なキット
 import MapKit           // 地図に必要
 
-class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+// クラスを追加
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UIPopoverControllerDelegate {
 
     // 地図を紐付け
     @IBOutlet var mapView: MKMapView!
 
     //CLLocationManagerの入れ物を用意
     var myLocationManager:CLLocationManager!
-    // ボタンのタイトルを指定
-    //タップされた回数
-    var tapped = 1
-    //ロングタップしたときに立てるピンを定義
-    var pinByLongPress: MKPointAnnotation!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,34 +29,85 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         myLocationManager.requestWhenInUseAuthorization()
         // 地図の初期化
         initMap()
-    }
-    
-    @IBAction func longPressMap(_ sender: Any) {
-        //ロングタップの最初の感知のみ受け取る
-        if (sender as AnyObject).state != UIGestureRecognizer.State.began {
-            return
-        }
-        //　ここから追加
+
+        // ピンをはじめから設置しておくためのもの
+        // 座標を緯線経線0にする
+        let testLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(35.710063, 139.8107)
         //インスタンス化
-        pinByLongPress = MKPointAnnotation()
-        //ロングタップから位置情報を取得
-        let location:CGPoint = (sender as AnyObject).location(in: mapView)
-        //取得した位置情報をCLLocationCoordinate2D（座標）に変換
-        let longPressedCoordinate:CLLocationCoordinate2D = mapView.convert(location, toCoordinateFrom: mapView)
-        //ロングタップした位置の座標をピンに入力
-        pinByLongPress.coordinate = longPressedCoordinate
-        if tapped == 1 {
-            pinByLongPress.title = "1つ目のピン"
-        } else {
-            pinByLongPress.title = "1つ目以外のピン"
-        }
-        tapped += 1
-        //ピンを追加する（立てる）
-        mapView.addAnnotation(pinByLongPress)
-        /* ここまで追加 */
+        let pinAnnotation = MKPointAnnotation()
+        //ピンを置く場所の座標を設定
+        pinAnnotation.coordinate  = testLocation
+        //ピンのタイトルの設定
+        pinAnnotation.title       = "test"
+        //ピンのサブタイトルを設定
+        pinAnnotation.subtitle    = "test subtitle"
+        //ピンを地図上に追加
+        mapView.addAnnotation(pinAnnotation)
+
+        // 緯度
+        let myLatDist: CLLocationDistance = 100
+        // 軽度
+        let myLonDist: CLLocationDistance = 100
+
+        // Regionを作成.
+        let myRegion: MKCoordinateRegion = MKCoordinateRegion(center: testLocation, latitudinalMeters: myLatDist, longitudinalMeters: myLonDist)
+        // MapViewに反映.
+        mapView.setRegion(myRegion, animated: true)
     }
 
-    //位置情報取得に失敗したときに呼び出されるメソッド
+    // ピンの詳細情報を得るために書いた情報
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+
+        // Identifier
+        let myAnnotationIdentifier = "myAnnotation"
+
+        // AnnotationViewをdequeue
+        var myAnnotationView : MKAnnotationView! = mapView.dequeueReusableAnnotationView(withIdentifier: myAnnotationIdentifier)
+
+        //アノテーションの右側につけるボタンの宣言
+        let button: UIButton = UIButton(type: UIButton.ButtonType.infoLight)
+
+        if myAnnotationView == nil {
+            myAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: myAnnotationIdentifier)
+            //アノテーションの右側にボタンを付ける
+            myAnnotationView.rightCalloutAccessoryView = button
+            myAnnotationView.canShowCallout = true
+        }
+        return myAnnotationView
+    }
+
+    // ボタンを押された時のメソッド
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+
+        //アノテーションを消す
+        if let annotation = view.annotation {
+            mapView.deselectAnnotation(annotation, animated: true)
+        }
+
+        //ストーリーボードの名前を指定（何も変更ない状態であれば「Main」だと思う）
+        let storyboard = UIStoryboard(name: "MapStoryboard", bundle: nil)
+        //viewにつけた名前を指定
+        let vc = storyboard.instantiateViewController(withIdentifier: "locationDetail")
+        //popoverを指定する
+        vc.modalPresentationStyle = UIModalPresentationStyle.popover
+
+        present(vc, animated: true, completion: nil)
+
+        let popoverPresentationController = vc.popoverPresentationController
+        popoverPresentationController?.sourceView = view
+        popoverPresentationController?.sourceRect = view.bounds
+
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    // 位置情報取得に失敗したときに呼び出されるメソッド
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error")
     }

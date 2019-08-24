@@ -47,6 +47,7 @@ class PostCellViewController: UIViewController {
     }
     // メッセージボタン
     @IBAction func messageButton(_ sender: UIButton) {
+        print("まだ決まっていない")
     }
     
 

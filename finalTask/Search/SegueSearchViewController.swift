@@ -22,6 +22,22 @@ class SegueSearchViewController: UIViewController {
         // 自動でキーボードを出す
         self.searchTextFiesld.becomeFirstResponder()
     }
+
+    // タイムラインへ遷移するメソッド。
+    func toTimeLine(){
+        // storyboardのfileの特定
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        // 移動先のncをインスタンス化。ナビゲーションバーを表示させるために無理やり作ってる
+        let nc = storyboard.instantiateInitialViewController() as! UITabBarController
+        // 画面遷移のアニメーション追加
+        nc.modalTransitionStyle = .crossDissolve
+        self.present(nc, animated: true)
+    }
+
+    @IBAction func searchButtonAction(_ sender: Any) {
+        toTimeLine()
+    }
+
 }
 
 

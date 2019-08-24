@@ -57,9 +57,20 @@ class ProfileViewController: UIViewController {
 
     }
 
-    // 戻るボタン
-    @IBAction func backButton(_ sender: Any) {
+    // タイムラインへ遷移するメソッド。
+    func toTimeLine(){
+        // storyboardのfileの特定
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        // 移動先のncをインスタンス化。ナビゲーションバーを表示させるために無理やり作ってる
+        let nc = storyboard.instantiateInitialViewController() as! UITabBarController
+        // 画面遷移のアニメーション追加
+        nc.modalTransitionStyle = .crossDissolve
+        self.present(nc, animated: true)
+    }
 
+    // 戻るボタン。タイムラインへ戻る
+    @IBAction func backButton(_ sender: Any) {
+        self.toTimeLine()
     }
     // プロフィール変更ボタン
     @IBAction func changeProfileButton(_ sender: Any) {

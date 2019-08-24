@@ -17,9 +17,10 @@ class ProfileChangeViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
-    @IBAction func buckButton(_ sender: Any) {
-        
+
+    // 変更ボタン。画面遷移する
+    @IBAction func infoChangeButton(_ sender: Any) {
+        self.dismiss(animated: true)
     }
 
 

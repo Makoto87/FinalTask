@@ -46,11 +46,27 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchTableView" destination="iwh-DK-wBc" id="aNI-hM-BhV"/>
+                        <segue destination="laK-KX-7cb" kind="show" identifier="messageSegue" id="TCR-s2-0dj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s0K-de-yAE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-733.33333333333337" y="334.82142857142856"/>
+        </scene>
+        <!--Exchange Message View Controller-->
+        <scene sceneID="NKl-ee-Fxw">
+            <objects>
+                <viewController id="laK-KX-7cb" customClass="ExchangeMessageViewController" customModule="finalTask" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h61-Ng-MOJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="AYk-tO-tCI"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lwe-cY-QzO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="316" y="361"/>
         </scene>
         <!--message-->
         <scene sceneID="Ang-lF-tNd">
