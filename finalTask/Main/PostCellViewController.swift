@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class PostCellViewController: UIViewController {
     // アイコンの写真image
@@ -26,14 +27,36 @@ class PostCellViewController: UIViewController {
     // 写真載せるところ
     @IBOutlet weak var foodImageView: UIImageView!
 
+    // いいねしたか判断する
     var goodBool: Bool = true
+    // firestoreをインスタンス化
+    let db = Firestore.firestore()
+    // データベースから取ってくる情報をすべて格納
+    var items = [NSDictionary]()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // テスト用。写真を隠す
         foodImageView.isHidden = true
+        // データを取ってくるメソッド
+//        fetch()
+
+        if let item = items.first {
+            placeLabel.text = item["placeName"] as? String
+            timeLabel.text = item["wishTime"] as? String
+            commentLabel.text = item["wishComment"] as? String
+
+        }
+//        // 場所の表示
+//        placeLabel.text = items["placeName"] as? String
+//        // 日時の表示
+//        timeLabel.text = items["wishTime"] as? String
+//        // コメントの表示
+//        commentLabel.text = items["wishComment"] as? String
 
     }
+
 
     // いいねボタン
     @IBAction func goodButton(_ sender: UIButton) {

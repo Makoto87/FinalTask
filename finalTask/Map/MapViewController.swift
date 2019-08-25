@@ -71,7 +71,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         let button: UIButton = UIButton(type: UIButton.ButtonType.infoLight)
 
         if myAnnotationView == nil {
-            myAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: myAnnotationIdentifier)
+            myAnnotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: myAnnotationIdentifier)
             //アノテーションの右側にボタンを付ける
             myAnnotationView.rightCalloutAccessoryView = button
             myAnnotationView.canShowCallout = true
@@ -91,7 +91,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         let storyboard = UIStoryboard(name: "MapStoryboard", bundle: nil)
         //viewにつけた名前を指定
         let vc = storyboard.instantiateViewController(withIdentifier: "locationDetail")
-        //popoverを指定する
+        // 画面遷移方法を指定する
         vc.modalPresentationStyle = UIModalPresentationStyle.popover
 
         present(vc, animated: true, completion: nil)

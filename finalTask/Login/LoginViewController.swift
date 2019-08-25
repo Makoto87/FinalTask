@@ -59,16 +59,13 @@ class LoginViewController: UIViewController {
             // 成功した場合
             } else {
                 print("新規作成成功")
-                // ユーザーIDをオプショナルバインディングする
-                guard let uid = Auth.auth().currentUser?.uid else {
-                    return
-                }
+
                 // コレクションを指定して、ユーザーごとにドキュメントを作る
                 let db = Firestore.firestore()
-                let users = db.collection("users").document(uid)
+                let users = db.collection("users").document("\(String(describing: Auth.auth().currentUser?.uid))")
                 // ドキュメントにメアドとパスワードを入れる
                 let userData: NSDictionary = ["email": email, "password": password]
-                users.updateData(userData as! [String : Any])
+                users.setData(userData as! [String : Any])
                 // タイムラインに遷移する
                 self.toTimeLine()
             }

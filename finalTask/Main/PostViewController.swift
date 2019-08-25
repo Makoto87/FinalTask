@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseFirestore        // インポート
 
 class PostViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegate {
 
@@ -26,6 +27,9 @@ class PostViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
     @IBOutlet weak var postOutlet: UIButton!
     // キーボードを表示させる
     @IBOutlet weak var postScrollView: UIScrollView!
+
+    // firestoreをインスタンス化
+    let db = Firestore.firestore()
 
     // テキストフィールドに書かれたら反応する
     @IBAction func placeTextFieldAction(_ sender: UITextField) {
@@ -51,6 +55,25 @@ class PostViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
 
     // 投稿ボタン
     @IBAction func postButton(_ sender: Any) {
+        // 場所を定数化
+        let placeName = placeTextField.text
+        // 日時を定数化
+        let wishTime = timeTextField.text
+        // ジャンルを定数化
+        let wishCategory = categoryTextField.text
+        // 価格の定数化
+        let wishPrice = priceTextField.text
+        // コメントの定数化
+        let wishComment = commentTextField.text
+        // Firestoreに飛ばす箱を用意
+        let post: NSDictionary = ["placeName": placeName ?? "", "wishTime": wishTime ?? "", "wishCategory": wishCategory ?? "", "wishPrice": wishPrice ?? "", "wishComment": wishComment ?? ""]
+
+        // userを辞書型へpost。
+        // 辞書型でAnyを使っているのは、受け取るほうが何を受け取るかわからないから。firebaseが指定している。
+        db.collection("post").addDocument(data: post as! [String : Any])
+
+        // 画面を消す
+        self.dismiss(animated: true)
     }
 
 }

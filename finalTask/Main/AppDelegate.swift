@@ -29,7 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         UINavigationBar.appearance().isTranslucent = false
 
-//        FirebaseApp.configure()
         // キーボードの設定
         IQKeyboardManager.shared.enable = true
         // Override point for customization after application launch.
