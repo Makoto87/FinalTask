@@ -9,7 +9,10 @@ target 'finalTask' do
   pod 'IBAnimatable'
   pod 'IQKeyboardManagerSwift'
   pod 'Material', '~> 3.1.0'
-
+  pod 'Firebase'
+  pod 'Firebase/Analytics' 
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
 
 end
 

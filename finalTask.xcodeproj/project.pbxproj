@@ -31,6 +31,7 @@
 		E1459516231119C10009AF03 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1459515231119C10009AF03 /* LoginViewController.swift */; };
 		E1459518231119D00009AF03 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1459517231119D00009AF03 /* LoginStoryboard.storyboard */; };
 		E145951A231120EE0009AF03 /* ExchangeMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1459519231120EE0009AF03 /* ExchangeMessageViewController.swift */; };
+		E145952023127ED00009AF03 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E145951F23127ED00009AF03 /* GoogleService-Info.plist */; };
 		E16E0CC2230D217A00F4A95D /* PostCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16E0CC1230D217A00F4A95D /* PostCellViewController.swift */; };
 		E1B22051230D500E008533DF /* SearchStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1B22050230D500E008533DF /* SearchStoryboard.storyboard */; };
 		E1BBA6A9230BEC8100DF29B0 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BBA6A8230BEC8100DF29B0 /* PostViewController.swift */; };
@@ -65,6 +66,7 @@
 		E1459515231119C10009AF03 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E1459517231119D00009AF03 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		E1459519231120EE0009AF03 /* ExchangeMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeMessageViewController.swift; sourceTree = "<group>"; };
+		E145951F23127ED00009AF03 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E16E0CC1230D217A00F4A95D /* PostCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewController.swift; sourceTree = "<group>"; };
 		E1B22050230D500E008533DF /* SearchStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchStoryboard.storyboard; sourceTree = "<group>"; };
 		E1BBA6A8230BEC8100DF29B0 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				E1431931230E214400E732DE /* Splash */,
 				E13B28F023094B1D002B67D9 /* Assets.xcassets */,
 				E13B28F523094B1D002B67D9 /* Info.plist */,
+				E145951F23127ED00009AF03 /* GoogleService-Info.plist */,
 			);
 			path = finalTask;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				E1431930230E18CB00E732DE /* SplashStoryboard.storyboard in Resources */,
 				E13B28F123094B1D002B67D9 /* Assets.xcassets in Resources */,
 				E13B28EF23094B1D002B67D9 /* Main.storyboard in Resources */,
+				E145952023127ED00009AF03 /* GoogleService-Info.plist in Resources */,
 				E13D5284230A70380078CFAB /* MapStoryboard.storyboard in Resources */,
 				E13D5288230A70560078CFAB /* MessageStoryboard.storyboard in Resources */,
 			);

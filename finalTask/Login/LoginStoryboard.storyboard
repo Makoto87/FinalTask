@@ -17,9 +17,55 @@
                     <view key="view" contentMode="scaleToFill" id="XOD-VX-CHb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="めあど" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Up3-gH-inH">
+                                <rect key="frame" x="50" y="104" width="314" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="パス" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A8K-FL-BMf">
+                                <rect key="frame" x="50" y="164" width="314" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYb-Mb-1Jd">
+                                <rect key="frame" x="100" y="224" width="214" height="30"/>
+                                <state key="normal" title="新規作成"/>
+                                <connections>
+                                    <action selector="newAccountButton:" destination="B2w-bC-BmU" eventType="touchUpInside" id="eth-Te-ag3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKD-6W-Q6k">
+                                <rect key="frame" x="100" y="284" width="214" height="30"/>
+                                <state key="normal" title="ログイン"/>
+                                <connections>
+                                    <action selector="loginButton:" destination="B2w-bC-BmU" eventType="touchUpInside" id="hBU-rF-J04"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="A8K-FL-BMf" firstAttribute="top" secondItem="Up3-gH-inH" secondAttribute="bottom" constant="30" id="3pT-Gb-A0l"/>
+                            <constraint firstItem="Up3-gH-inH" firstAttribute="top" secondItem="id3-nF-c9D" secondAttribute="top" constant="60" id="4Dz-UT-JBK"/>
+                            <constraint firstItem="id3-nF-c9D" firstAttribute="trailing" secondItem="TKD-6W-Q6k" secondAttribute="trailing" constant="100" id="7de-ch-5ck"/>
+                            <constraint firstItem="TKD-6W-Q6k" firstAttribute="top" secondItem="tYb-Mb-1Jd" secondAttribute="bottom" constant="30" id="Ap1-nc-qwL"/>
+                            <constraint firstItem="id3-nF-c9D" firstAttribute="trailing" secondItem="A8K-FL-BMf" secondAttribute="trailing" constant="50" id="Jpg-Qy-yWJ"/>
+                            <constraint firstItem="id3-nF-c9D" firstAttribute="trailing" secondItem="Up3-gH-inH" secondAttribute="trailing" constant="50" id="P6B-Bt-aGo"/>
+                            <constraint firstItem="tYb-Mb-1Jd" firstAttribute="leading" secondItem="id3-nF-c9D" secondAttribute="leading" constant="100" id="SY2-J8-W2o"/>
+                            <constraint firstItem="tYb-Mb-1Jd" firstAttribute="top" secondItem="A8K-FL-BMf" secondAttribute="bottom" constant="30" id="aCJ-mv-OON"/>
+                            <constraint firstItem="A8K-FL-BMf" firstAttribute="leading" secondItem="id3-nF-c9D" secondAttribute="leading" constant="50" id="eUR-dD-cWu"/>
+                            <constraint firstItem="Up3-gH-inH" firstAttribute="leading" secondItem="id3-nF-c9D" secondAttribute="leading" constant="50" id="lw4-SX-QK8"/>
+                            <constraint firstItem="TKD-6W-Q6k" firstAttribute="leading" secondItem="id3-nF-c9D" secondAttribute="leading" constant="100" id="trK-k3-RxH"/>
+                            <constraint firstItem="id3-nF-c9D" firstAttribute="trailing" secondItem="tYb-Mb-1Jd" secondAttribute="trailing" constant="100" id="xYX-Fo-dlr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="id3-nF-c9D"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="Up3-gH-inH" id="0K5-RR-Kqt"/>
+                        <outlet property="passwordTextField" destination="A8K-FL-BMf" id="QMk-vI-frg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yw7-g4-J7D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
