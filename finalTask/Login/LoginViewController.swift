@@ -60,12 +60,30 @@ class LoginViewController: UIViewController {
             } else {
                 print("新規作成成功")
 
-                // コレクションを指定して、ユーザーごとにドキュメントを作る
+                // firestoreをインスタンス化
                 let db = Firestore.firestore()
+                // コレクションを指定して、ユーザーごとにドキュメントを作る
                 let users = db.collection("users").document("\(String(describing: Auth.auth().currentUser?.uid))")
+
+                // UserDefaultにfirestoreのIdを格納
+                UserDefaults.standard.set(users.documentID, forKey: "Id")
+
                 // ドキュメントにメアドとパスワードを入れる
                 let userData: NSDictionary = ["email": email, "password": password]
                 users.setData(userData as! [String : Any])
+
+                // いいねリストを作る
+                // キー値と対応したドキュメントIDを取ってくる
+                guard let userId = UserDefaults.standard.object(forKey: "Id") else {
+                    print("ログイン情報取得失敗")
+                    return
+                }
+                // コレクションを指定して、自分のIDを名前にしたドキュメントを作成
+                let likes = db.collection("likes").document("like")
+                // ドキュメントにいいねした人とされた人を入れる
+                let ids: NSDictionary = ["likedUser": userId, "likeUser": userId]
+                likes.setData(ids as! [String: Any])
+
                 // タイムラインに遷移する
                 self.toTimeLine()
             }
@@ -83,6 +101,12 @@ class LoginViewController: UIViewController {
                 print("ログイン失敗")
             } else {
                 print("ログイン成功")
+                // firestoreをインスタンス化
+                let db = Firestore.firestore()
+                // コレクションとドキュメントを指定
+                let users = db.collection("users").document("\(String(describing: Auth.auth().currentUser?.uid))")
+                // UserDefaultにfirestoreのIdを格納
+                UserDefaults.standard.set(users.documentID, forKey: "Id")
                 self.toTimeLine()
             }
         })

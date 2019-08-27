@@ -65,8 +65,15 @@ class PostViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
         let wishPrice = priceTextField.text
         // コメントの定数化
         let wishComment = commentTextField.text
+
+        // キー値と対応したドキュメントIDを取ってくる
+        guard let userId = UserDefaults.standard.object(forKey: "Id") else {
+            print("ログイン情報取得失敗")
+            return
+        }
+        
         // Firestoreに飛ばす箱を用意
-        let post: NSDictionary = ["placeName": placeName ?? "", "wishTime": wishTime ?? "", "wishCategory": wishCategory ?? "", "wishPrice": wishPrice ?? "", "wishComment": wishComment ?? ""]
+        let post: NSDictionary = ["placeName": placeName ?? "", "wishTime": wishTime ?? "", "wishCategory": wishCategory ?? "", "wishPrice": wishPrice ?? "", "wishComment": wishComment ?? "", "userId": userId]
 
         // userを辞書型へpost。
         // 辞書型でAnyを使っているのは、受け取るほうが何を受け取るかわからないから。firebaseが指定している。

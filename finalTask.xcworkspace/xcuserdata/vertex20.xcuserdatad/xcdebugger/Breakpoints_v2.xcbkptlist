@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "finalTask/Main/PostCellViewController.swift"
-            timestampString = "588437826.644437"
+            filePath = "finalTask/Main/MenuViewController.swift"
+            timestampString = "588524420.3709559"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "goodButton(_:)"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "touchesEnded(_:with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

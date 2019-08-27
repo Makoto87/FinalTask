@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
 
 // プロフィールのクラス
 class ProfileViewController: UIViewController {
@@ -24,11 +26,13 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var backButtonOutlet: UIButton!
     // 変更ボタン丸くするためのもの
     @IBOutlet weak var changeButtonOutlet: UIButton!
-
-
-
     // テーブルビュー紐付け
     @IBOutlet weak var profileTableview: UITableView!
+
+    // firestoreのインスタンス化
+    let db = Firestore.firestore()
+    // 取ってきた情報を格納する場所
+    var userItems: [NSDictionary] = []
 
 
     override func viewDidLoad() {
@@ -36,10 +40,6 @@ class ProfileViewController: UIViewController {
         // 試し。アイコンとバックの画像
         backImageView.image = #imageLiteral(resourceName: "カレー横長")
         iconImageView.image = #imageLiteral(resourceName: "ランチ アイコン")
-        // 試し。名前と年齢とコメント書き込み
-        nameLabel.text = "堀田 真"
-        ageLabel.text = "22歳"
-        commentLabel.text = "美味しいご飯食べに行きましょう〜"
 
         // テーブルビューの線の色
         profileTableview.separatorColor = .orange
@@ -55,6 +55,57 @@ class ProfileViewController: UIViewController {
         // ナビゲーションバーを隠す
         navigationController?.isNavigationBarHidden = true
 
+        getUserItem()
+        if let item = userItems.first {
+            nameLabel.text = item["name"] as? String
+            ageLabel.text = item["age"] as? String
+            commentLabel.text = item["comment"] as? String
+
+        } else {
+            nameLabel.text = "匿名"
+            ageLabel.text = "不明"
+            commentLabel.text = ""
+        }
+    }
+
+    func getUserItem() {
+        // 取得データを格納する
+        var tempItems = [NSDictionary]()
+
+        // キー値と対応したドキュメントIDを取ってくる
+        guard let userId = UserDefaults.standard.object(forKey: "Id") else {
+            print("ログイン情報取得失敗")
+            return
+        }
+
+        db.collection("users").document("\(userId)").getDocument() {(querysnapshot, err) in
+            // アイテムを全部取ってくる。
+            if err != nil {
+                print("エラー")
+            } else {
+                print(querysnapshot?.data())
+                if let querysnapshot = querysnapshot {
+                    tempItems.append((querysnapshot.data() as! NSDictionary))
+                self.userItems = tempItems
+                }
+            }
+        }
+    }
+
+
+    override func viewWillAppear(_ animated: Bool) {
+
+        getUserItem()
+        if let item = userItems.first {
+            nameLabel.text = item["name"] as? String
+            ageLabel.text = item["age"] as? String
+            commentLabel.text = item["comment"] as? String
+
+        } else {
+            nameLabel.text = "匿名"
+            ageLabel.text = "不明"
+            commentLabel.text = ""
+        }
     }
 
     // タイムラインへ遷移するメソッド。

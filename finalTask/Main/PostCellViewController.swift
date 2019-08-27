@@ -31,7 +31,7 @@ class PostCellViewController: UIViewController {
     var goodBool: Bool = true
     // firestoreをインスタンス化
     let db = Firestore.firestore()
-    // データベースから取ってくる情報をすべて格納
+    // 遷移前のセルから取ってくる情報を格納
     var items = [NSDictionary]()
 
 
@@ -39,22 +39,13 @@ class PostCellViewController: UIViewController {
         super.viewDidLoad()
         // テスト用。写真を隠す
         foodImageView.isHidden = true
-        // データを取ってくるメソッド
-//        fetch()
-
+        // 持ってきた情報を表示
         if let item = items.first {
             placeLabel.text = item["placeName"] as? String
             timeLabel.text = item["wishTime"] as? String
+            priceLabel.text = item["wishPrice"] as? String
             commentLabel.text = item["wishComment"] as? String
-
         }
-//        // 場所の表示
-//        placeLabel.text = items["placeName"] as? String
-//        // 日時の表示
-//        timeLabel.text = items["wishTime"] as? String
-//        // コメントの表示
-//        commentLabel.text = items["wishComment"] as? String
-
     }
 
 

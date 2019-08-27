@@ -18,6 +18,7 @@
 import UIKit
 import Material     // マテリアルをインポート
 import FirebaseFirestore    // インポート
+import FirebaseAuth
 
 
 // テーブルビューとサイドメニューのクラスを追加
@@ -27,11 +28,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     // 1 アイコン・2 名前・3 場所・4 日時・5 コメント・6 写真
     @IBOutlet weak var tableView: UITableView!
     // 通知用テーブルビュー
-    @IBOutlet weak var tableView2: UITableView!
+    @IBOutlet weak var alertTableView: UITableView!
     // 投稿ボタンのoutolet
     @IBOutlet weak var sendButtonOutlet: UIButton!
     // タブバーの画像を紐付け
     @IBOutlet weak var timelineImage: UITabBarItem!
+   
 
     // いいねがついているか判断するもの
     var goodBool: Bool = true
@@ -43,6 +45,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     var items = [NSDictionary]()
     // 引っ張って更新する処理
     let refreshControl = UIRefreshControl()
+    // いいねした人の情報を入れるためのメソッド。
+    var likeItems: [NSDictionary] = []
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +61,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.sendButtonOutlet.layer.masksToBounds = true
 
         // 通知画面を隠す
-        self.tableView2.isHidden = true
+        self.alertTableView.isHidden = true
 
         // refreshControllに文言を追加
         refreshControl.attributedTitle = NSAttributedString(string: "引っ張って更新")      // 更新時の文字
@@ -65,9 +70,19 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         // データを取ってくるメソッド
         fetch()
+        // いいねリストを取ってくるメソッド
+        likeFetch()
+        
     }
 
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailSegue" {
+        let vc = segue.destination as! PostCellViewController
+        vc.items = [sender as! NSDictionary]
+        } else {
+            return
+        }
+    }
 
 
 //    // 遷移させる関数
@@ -87,6 +102,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         items = [NSDictionary]()
         // データをサーバから取得
         fetch()
+        likeFetch()
         // リロード
         tableView.reloadData()
         // リフレッシュを止める
@@ -94,10 +110,38 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     // firestoreからデータの取得
-    func fetch() {
-        db.collection("post").getDocuments() {(querysnapshot, err) in
+    func likeFetch() {
+        // 取得データを格納する場所。辞書型
+        var tempItems: [NSDictionary] = []
+        // postドキュメントからデータをもらう
+        db.collection("likes").getDocuments() {(querysnapshot, err) in
+            // いいねしたユーザーの情報だけ取ってくる。
+            for item in querysnapshot!.documents {
+                // 自分のユーザーIDに当てはまる人だけ探す
+                let dict: [String: Any] = item.data()
+                for i in dict["likedUser"] as! String {
+                    // 自分のIDと取ったIDが同じ場合
+                    if self.db.collection("users").document("\(String(describing: Auth.auth().currentUser?.uid))") as? String == i as? String {
+                        // IDが一致した辞書型を配列に組み込む
+                        tempItems.append(dict as NSDictionary)
+                    }
+                }
+            }
+            // 用意していたlikeItemsに特定の辞書型だけを入れる
+            self.likeItems = tempItems
+            // 順番を入れ替え
+            self.likeItems = self.likeItems.reversed()
+            // リロード
+            self.tableView.reloadData()
+        }
+    }
 
-            var tempItems = [NSDictionary]()
+    // firestoreからいいねした人のデータの取得
+    func fetch() {
+        // 取得データを格納する場所
+        var tempItems = [NSDictionary]()
+        // postドキュメントからデータをもらう
+        db.collection("post").getDocuments() {(querysnapshot, err) in
             // アイテムを全部取ってくる。
             for item in querysnapshot!.documents {
                 let dict = item.data()
@@ -111,10 +155,15 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
 
-
     // セルの数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        // 通知画面がないとき
+        if self.alertTableView.isHidden == true{
+            return items.count
+        // 通知画面が表示されているとき
+        } else {
+            return likeItems.count
+        }
     }
 
     // セルの高さを動的にする
@@ -124,6 +173,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     // セルの設定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // 通知画面が表示されていないとき
+        if self.alertTableView.isHidden == true {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         // itemsの中からindexpathのrow番目を取得
         let dict = items[(indexPath as NSIndexPath).row]
@@ -154,9 +205,20 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         //単語の途中で改行されないようにする
 //        commentLabel.lineBreakMode = NSLineBreakByWordWrapping
 
-        
+            return cell
 
-        return cell
+        // 通知画面が表示されているとき
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AlertCell", for: indexPath)
+            // itemsの中からindexpathのrow番目を取得
+            let dict = likeItems[(indexPath as NSIndexPath).row]
+            // いいねした人の表示
+            cell.textLabel?.text = dict["likeUser"] as? String
+
+
+            return cell
+        }
+
     }
 
     // セルの遷移設定
@@ -182,11 +244,24 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         // いいねがついていなかったら
         if goodBool == true { sender.setTitleColor(UIColor.magenta, for: .normal)       // ピンク色になる
             goodBool = false    // いいねがついた状態を表す
+            // キー値と対応したドキュメントIDを取ってくる
+            guard let userId = UserDefaults.standard.object(forKey: "Id") else {
+                print("ログイン情報取得失敗")
+                return
+            }
+            // セルに対応した相手のIDを定数化
+            let id = items[(indexPath as NSIndexPath).row]["userId"]
+            // コレクションとドキュメントを指定
+            let likes = db.collection("likes").document("\(userId)" + "\(id)")
+            // ドキュメントにいいねした人とされた人を入れる
+            let ids: NSDictionary = ["likedUser": id, "likeUser": userId]
+            // 作ったドキュメントにいいねした人を追加
+            likes.setData(ids as! [String : Any])
+
         } else {
             sender.setTitleColor(UIColor.black, for: .normal)       // 黒色になる
             goodBool = true    // いいねがない状態に変わる
         }
-
     }
 
     // メッセージボタン
@@ -197,25 +272,16 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         // まだ通知画面が出ていなかったとき
         if alertBool == true {
         // ボタンを押した瞬間tableViewが表れる
-        self.tableView2.isHidden = false
+        self.alertTableView.isHidden = false
             // 通知画面出したという証拠
             alertBool = false
         // 通知画面が出ているとき
         } else {
             // tableViewを消す
-            self.tableView2.isHidden = true
+            self.alertTableView.isHidden = true
             // 通知画面消したという証拠
             alertBool = true
-
         }
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! PostCellViewController
-        vc.items = [sender as! NSDictionary]
-    }
-
-    
-
 }
 

@@ -245,6 +245,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="26y-7E-qfe"/>
                     </view>
+                    <connections>
+                        <outlet property="ageTextField" destination="7AM-Mx-uKH" id="IVN-rb-59t"/>
+                        <outlet property="commentTextField" destination="JNp-Dg-R4C" id="VDg-pt-yGo"/>
+                        <outlet property="hobbyTextField" destination="5iS-SK-s9f" id="wvH-A7-Zvw"/>
+                        <outlet property="iconImage" destination="OAn-vs-0ZH" id="xP9-sN-dDW"/>
+                        <outlet property="nameTextField" destination="CGP-tz-327" id="3WF-DL-jZd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="II3-Xa-rMn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
