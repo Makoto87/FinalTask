@@ -7,12 +7,14 @@ target 'finalTask' do
 
   # Pods for finalTask
   pod 'IBAnimatable'
+  pod 'JSQMessagesViewController'
   pod 'IQKeyboardManagerSwift'
   pod 'Material', '~> 3.1.0'
   pod 'Firebase'
   pod 'Firebase/Analytics' 
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Database'
 
 end
 

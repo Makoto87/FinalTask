@@ -71,8 +71,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         // データを取ってくるメソッド
         fetch()
         // いいねリストを取ってくるメソッド
-        likeFetch()
-        
+//        likeFetch()
+
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -102,7 +102,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         items = [NSDictionary]()
         // データをサーバから取得
         fetch()
-        likeFetch()
+//        likeFetch()
         // リロード
         tableView.reloadData()
         // リフレッシュを止める
@@ -110,31 +110,31 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     // firestoreからデータの取得
-    func likeFetch() {
-        // 取得データを格納する場所。辞書型
-        var tempItems: [NSDictionary] = []
-        // postドキュメントからデータをもらう
-        db.collection("likes").getDocuments() {(querysnapshot, err) in
-            // いいねしたユーザーの情報だけ取ってくる。
-            for item in querysnapshot!.documents {
-                // 自分のユーザーIDに当てはまる人だけ探す
-                let dict: [String: Any] = item.data()
-                for i in dict["likedUser"] as! String {
-                    // 自分のIDと取ったIDが同じ場合
-                    if self.db.collection("users").document("\(String(describing: Auth.auth().currentUser?.uid))") as? String == i as? String {
-                        // IDが一致した辞書型を配列に組み込む
-                        tempItems.append(dict as NSDictionary)
-                    }
-                }
-            }
-            // 用意していたlikeItemsに特定の辞書型だけを入れる
-            self.likeItems = tempItems
-            // 順番を入れ替え
-            self.likeItems = self.likeItems.reversed()
-            // リロード
-            self.tableView.reloadData()
-        }
-    }
+//    func likeFetch() {
+//        // 取得データを格納する場所。辞書型
+//        var tempItems: [NSDictionary] = []
+//        // postドキュメントからデータをもらう
+//        db.collection("likes").getDocuments() {(querysnapshot, err) in
+//            // いいねしたユーザーの情報だけ取ってくる。
+//            for item in querysnapshot!.documents {
+//                // 自分のユーザーIDに当てはまる人だけ探す
+//                let dict: [String: Any] = item.data()
+//                for i in dict["likedUser"] as! String {
+//                    // 自分のIDと取ったIDが同じ場合
+//                    if self.db.collection("users").document("\(String(describing: Auth.auth().currentUser?.uid))") as? String == i as? String {
+//                        // IDが一致した辞書型を配列に組み込む
+//                        tempItems.append(dict as NSDictionary)
+//                    }
+//                }
+//            }
+//            // 用意していたlikeItemsに特定の辞書型だけを入れる
+//            self.likeItems = tempItems
+//            // 順番を入れ替え
+//            self.likeItems = self.likeItems.reversed()
+//            // リロード
+//            self.tableView.reloadData()
+//        }
+//    }
 
     // firestoreからいいねした人のデータの取得
     func fetch() {
