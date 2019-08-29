@@ -350,7 +350,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xhc-YU-zof">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ラーメン" translatesAutoresizingMaskIntoConstraints="NO" id="Xhc-YU-zof">
                                 <rect key="frame" x="25" y="113" width="55" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="2Fx-z2-byt"/>
@@ -782,6 +782,7 @@
         <image name="icons8-menu-24" width="24" height="24"/>
         <image name="taki_rentarod" width="247" height="233"/>
         <image name="ランチ アイコン" width="225" height="225"/>
+        <image name="ラーメン" width="1280" height="853"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Sac-eN-fbI"/>

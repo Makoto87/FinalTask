@@ -38,7 +38,6 @@ class DetailViewController: UIViewController {
     var dItems = [NSDictionary]()
 
     // 画面遷移前からもらう情報を入れる
-//    var items = [NSDictionary]()
     var tag = 0
     var dict = [NSDictionary]()
     var items = [String: Any]()
@@ -69,8 +68,6 @@ class DetailViewController: UIViewController {
                 }
 
             }
-////            self.dict = tempItems                       // 最初に作った配列に格納
-//            self.items = tempItems[self.tag] as! [String : Any]
             guard let detailitems = tempItems.first else { return }
             // 名前
             self.nameLabel.text = detailitems["name"] as? String

@@ -71,23 +71,12 @@ class LoginViewController: UIViewController {
                 let userData: NSDictionary = ["email": email, "password": password, "userID": createId]
                 users.setData(userData as! [String : Any])
 
-//                // いいねリストを作る
-//                // キー値と対応したドキュメントIDを取ってくる
-//                guard let userId = UserDefaults.standard.object(forKey: "Id") else {
-//                    print("ログイン情報取得失敗")
-//                    return
-//                }
-//                // コレクションを指定して、自分のIDを名前にしたドキュメントを作成
-//                let likes = db.collection("likes").document("like")
-//                // ドキュメントにいいねした人とされた人を入れる
-//                let ids: NSDictionary = ["likedUser": userId, "likeUser": userId]
-//                likes.setData(ids as! [String: Any])
-
                 // タイムラインに遷移する
                 self.toTimeLine()
             }
         })
     }
+    
     // ログインボタン
     @IBAction func loginButton(_ sender: Any) {
         guard let email = emailTextField.text, let password = passwordTextField.text else {

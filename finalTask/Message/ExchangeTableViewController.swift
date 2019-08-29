@@ -6,6 +6,9 @@
 //  Copyright © 2019 VERTEX20. All rights reserved.
 //
 
+
+
+// 作ろうと思いましたができませんでした
 import UIKit
 
 struct ChatMessage {

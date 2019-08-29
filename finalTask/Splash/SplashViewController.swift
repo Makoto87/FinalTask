@@ -29,9 +29,9 @@ class SplashViewController: UIViewController {
     // タイムラインへ遷移するメソッド。認証成功時に組み込む
     func toTimeLine(){
         // storyboardのfileの特定
-        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard: UIStoryboard = UIStoryboard(name: "LoginStoryboard", bundle: nil)
         // 移動先のncをインスタンス化。ナビゲーションバーを表示させるために無理やり作ってる
-        let nc = storyboard.instantiateInitialViewController() as! UITabBarController
+        let nc = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
         self.present(nc, animated: true)
     }
 }

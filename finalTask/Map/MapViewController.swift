@@ -23,11 +23,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     let db = Firestore.firestore()
     // データベースから取ってくる情報をすべて格納
     var items = [NSDictionary]()
-//    // ピン一つ一つにデータベースのデータをもたせる
-//    var pinItem = [String: Any]()
     // 表示させているものが何番目のドキュメントか判断する変数
     var num = 0
-    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,7 +102,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         //viewにつけた名前を指定
         let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
 
-            vc.tag = num
+        vc.tag = num
 
         present(vc, animated: true, completion: nil)
     }
@@ -124,8 +122,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             self.items = tempItems                          // 最初に作った配列に格納
             // 各ドキュメントの情報を取る
             for place in self.items {
-                // 上のデータに格納
-//                self.pinItem = place as! [String : Any]
                 // 取った情報のplaceNameに対応するところを入手
                 let placeName = place["placeName"] as? String
                 // 場所によって違うピンを立てる

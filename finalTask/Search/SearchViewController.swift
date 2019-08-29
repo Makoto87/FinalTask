@@ -34,10 +34,9 @@ class SearchViewController: UIViewController,UICollectionViewDelegate,  UICollec
         // どの処理をするかチェック
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
 
-            let imageView = cell.contentView.viewWithTag(1) as! UIImageView
-            imageView.image = UIImage(named: collections[indexPath.row])
+        let imageView = cell.contentView.viewWithTag(1) as! UIImageView
+        imageView.image = UIImage(named: collections[indexPath.row])
 
-//        collectionImages = (collectionItems[tag][indexPath.row] as? UIImageView)!
         return cell
     }
 
@@ -45,8 +44,4 @@ class SearchViewController: UIViewController,UICollectionViewDelegate,  UICollec
     @IBAction func searchButton(_ sender: Any) {
         performSegue(withIdentifier: "sendSearchBar", sender: nil)
     }
-    
-
-
-
 }

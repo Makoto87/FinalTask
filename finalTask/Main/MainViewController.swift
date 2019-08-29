@@ -94,8 +94,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         if segue.identifier == "toDetailSegue" {
         let vc = segue.destination as! PostCellViewController
         vc.items = [sender as! NSDictionary]
-//        } else if segue.identifier == "toDetailAlert" {
-//            let vc = segue.destination as! DetailAlertViewController
         } else {
             return
         }

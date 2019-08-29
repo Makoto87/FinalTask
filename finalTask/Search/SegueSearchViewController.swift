@@ -37,7 +37,4 @@ class SegueSearchViewController: UIViewController {
     @IBAction func searchButtonAction(_ sender: Any) {
         toTimeLine()
     }
-
 }
-
-
