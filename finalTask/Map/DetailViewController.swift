@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseAuth
 
 class DetailViewController: UIViewController {
     // アイコンのイメージビュー
@@ -30,12 +32,66 @@ class DetailViewController: UIViewController {
     // 写真のイメージビュー
     @IBOutlet var photoImageView: UIImageView!
 
+    // firestoreのインスタンス化
+    let db = Firestore.firestore()
+    // 遷移前の特定の情報を格納
+    var dItems = [NSDictionary]()
+
+    // 画面遷移前からもらう情報を入れる
+//    var items = [NSDictionary]()
+    var tag = 0
+    var dict = [NSDictionary]()
+    var items = [String: Any]()
+
     // いいねがついているか判断するもの
     var goodBool: Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        // 情報を持ってくる
+        fetch()
+
+    }
+
+    // firestoreから投稿データを取得
+    func fetch() {
+        // 取得データを格納する場所
+        var tempItems = [NSDictionary]()
+        // postドキュメントからデータをもらう
+        db.collection("post").getDocuments() {(querysnapshot, err) in
+            // アイテムを全部取ってくる。
+            for item in querysnapshot!.documents {
+                let dic = item.data()
+                // タグ情報と場所の値が同じときに配列へ追加
+                if self.tag == dic["placeNumber"] as! Int {
+                    tempItems.append(dic as NSDictionary)      // tempItemsに追加
+                }
+
+            }
+////            self.dict = tempItems                       // 最初に作った配列に格納
+//            self.items = tempItems[self.tag] as! [String : Any]
+            guard let detailitems = tempItems.first else { return }
+            // 名前
+            self.nameLabel.text = detailitems["name"] as? String
+            // 場所
+            self.placeLabel.text = detailitems["placeName"] as? String
+            //年齢
+            self.ageLabel.text = detailitems["age"] as? String
+            // 日時
+            self.timeLabel.text = detailitems["wishTime"] as? String
+            // ジャンル
+            self.categoryLabel.text = detailitems["wishCategory"] as? String
+            // 値段
+            self.priceLabel.text = detailitems["wishPrice"] as? String
+            // コメント
+            self.commentLabel.text = detailitems["wishComment"] as? String
+            // 趣味
+            self.hobbyLabel.text = detailitems["hobby"] as? String
+            // 写真
+        }
+
+
     }
     
     @IBAction func goodButton(_ sender: UIButton) {

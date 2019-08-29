@@ -41,6 +41,8 @@ class PostCellViewController: UIViewController {
         foodImageView.isHidden = true
         // 持ってきた情報を表示
         if let item = items.first {
+            nameLabel.text = item["name"] as? String
+
             placeLabel.text = item["placeName"] as? String
             timeLabel.text = item["wishTime"] as? String
             priceLabel.text = item["wishPrice"] as? String

@@ -18,47 +18,73 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="mkmkmkmk@mk.com" borderStyle="roundedRect" placeholder="めあど" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Up3-gH-inH">
-                                <rect key="frame" x="50" y="104" width="314" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" placeholder="パス" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A8K-FL-BMf">
-                                <rect key="frame" x="50" y="164" width="314" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYb-Mb-1Jd">
-                                <rect key="frame" x="100" y="224" width="214" height="30"/>
-                                <state key="normal" title="新規作成"/>
-                                <connections>
-                                    <action selector="newAccountButton:" destination="B2w-bC-BmU" eventType="touchUpInside" id="eth-Te-ag3"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKD-6W-Q6k">
-                                <rect key="frame" x="100" y="284" width="214" height="30"/>
-                                <state key="normal" title="ログイン"/>
-                                <connections>
-                                    <action selector="loginButton:" destination="B2w-bC-BmU" eventType="touchUpInside" id="hBU-rF-J04"/>
-                                </connections>
-                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="タコス画像" translatesAutoresizingMaskIntoConstraints="NO" id="7ub-Rg-W7u">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="0W9-8X-plh">
+                                <rect key="frame" x="20" y="722" width="374" height="130"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="mkmkmkmk@mk.com" borderStyle="roundedRect" placeholder="めあど" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Up3-gH-inH">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" placeholder="パス" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A8K-FL-BMf">
+                                        <rect key="frame" x="0.0" y="50" width="374" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="53" translatesAutoresizingMaskIntoConstraints="NO" id="cXt-Ri-IZ1">
+                                        <rect key="frame" x="0.0" y="100" width="374" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYb-Mb-1Jd">
+                                                <rect key="frame" x="0.0" y="0.0" width="160.5" height="30"/>
+                                                <color key="backgroundColor" red="1" green="0.81578313329999996" blue="0.66691394859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="新規作成">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="newAccountButton:" destination="B2w-bC-BmU" eventType="touchUpInside" id="eth-Te-ag3"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKD-6W-Q6k">
+                                                <rect key="frame" x="213.5" y="0.0" width="160.5" height="30"/>
+                                                <color key="backgroundColor" red="1" green="0.81578313329999996" blue="0.66691394859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="ログイン">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="loginButton:" destination="B2w-bC-BmU" eventType="touchUpInside" id="hBU-rF-J04"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="A8K-FL-BMf" firstAttribute="leading" secondItem="Up3-gH-inH" secondAttribute="leading" id="WHb-Ya-5O9"/>
+                                </constraints>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashRogoRemake" translatesAutoresizingMaskIntoConstraints="NO" id="6eS-ir-GW4">
+                                <rect key="frame" x="167" y="408" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="8F4-WQ-TnI"/>
+                                    <constraint firstAttribute="width" secondItem="6eS-ir-GW4" secondAttribute="height" multiplier="1:1" id="YtN-1Q-sRa"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="A8K-FL-BMf" firstAttribute="top" secondItem="Up3-gH-inH" secondAttribute="bottom" constant="30" id="3pT-Gb-A0l"/>
-                            <constraint firstItem="Up3-gH-inH" firstAttribute="top" secondItem="id3-nF-c9D" secondAttribute="top" constant="60" id="4Dz-UT-JBK"/>
-                            <constraint firstItem="id3-nF-c9D" firstAttribute="trailing" secondItem="TKD-6W-Q6k" secondAttribute="trailing" constant="100" id="7de-ch-5ck"/>
-                            <constraint firstItem="TKD-6W-Q6k" firstAttribute="top" secondItem="tYb-Mb-1Jd" secondAttribute="bottom" constant="30" id="Ap1-nc-qwL"/>
-                            <constraint firstItem="id3-nF-c9D" firstAttribute="trailing" secondItem="A8K-FL-BMf" secondAttribute="trailing" constant="50" id="Jpg-Qy-yWJ"/>
-                            <constraint firstItem="id3-nF-c9D" firstAttribute="trailing" secondItem="Up3-gH-inH" secondAttribute="trailing" constant="50" id="P6B-Bt-aGo"/>
-                            <constraint firstItem="tYb-Mb-1Jd" firstAttribute="leading" secondItem="id3-nF-c9D" secondAttribute="leading" constant="100" id="SY2-J8-W2o"/>
-                            <constraint firstItem="tYb-Mb-1Jd" firstAttribute="top" secondItem="A8K-FL-BMf" secondAttribute="bottom" constant="30" id="aCJ-mv-OON"/>
-                            <constraint firstItem="A8K-FL-BMf" firstAttribute="leading" secondItem="id3-nF-c9D" secondAttribute="leading" constant="50" id="eUR-dD-cWu"/>
-                            <constraint firstItem="Up3-gH-inH" firstAttribute="leading" secondItem="id3-nF-c9D" secondAttribute="leading" constant="50" id="lw4-SX-QK8"/>
-                            <constraint firstItem="TKD-6W-Q6k" firstAttribute="leading" secondItem="id3-nF-c9D" secondAttribute="leading" constant="100" id="trK-k3-RxH"/>
-                            <constraint firstItem="id3-nF-c9D" firstAttribute="trailing" secondItem="tYb-Mb-1Jd" secondAttribute="trailing" constant="100" id="xYX-Fo-dlr"/>
+                            <constraint firstItem="6eS-ir-GW4" firstAttribute="centerY" secondItem="XOD-VX-CHb" secondAttribute="centerY" id="3tf-un-Rdg"/>
+                            <constraint firstItem="7ub-Rg-W7u" firstAttribute="bottom" secondItem="id3-nF-c9D" secondAttribute="bottom" id="Oog-pW-Enw"/>
+                            <constraint firstItem="0W9-8X-plh" firstAttribute="leading" secondItem="id3-nF-c9D" secondAttribute="leading" constant="20" id="SSV-B3-Ad8"/>
+                            <constraint firstItem="id3-nF-c9D" firstAttribute="trailing" secondItem="7ub-Rg-W7u" secondAttribute="trailing" id="WAe-A7-tEn"/>
+                            <constraint firstItem="7ub-Rg-W7u" firstAttribute="top" secondItem="id3-nF-c9D" secondAttribute="top" id="WfZ-E3-X40"/>
+                            <constraint firstItem="id3-nF-c9D" firstAttribute="trailing" secondItem="0W9-8X-plh" secondAttribute="trailing" constant="20" id="fLZ-lh-c0S"/>
+                            <constraint firstItem="6eS-ir-GW4" firstAttribute="centerX" secondItem="XOD-VX-CHb" secondAttribute="centerX" id="ibm-3L-uvm"/>
+                            <constraint firstItem="7ub-Rg-W7u" firstAttribute="leading" secondItem="id3-nF-c9D" secondAttribute="leading" id="qZm-9B-LAM"/>
+                            <constraint firstItem="id3-nF-c9D" firstAttribute="bottom" secondItem="0W9-8X-plh" secondAttribute="bottom" constant="10" id="ydC-kG-F08"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="id3-nF-c9D"/>
                     </view>
@@ -69,7 +95,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yw7-g4-J7D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="181" y="102"/>
+            <point key="canvasLocation" x="179.71014492753625" y="101.78571428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="splashRogoRemake" width="199" height="199"/>
+        <image name="タコス画像" width="870" height="1280"/>
+    </resources>
 </document>

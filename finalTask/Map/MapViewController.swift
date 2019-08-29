@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation     // 地図に必要なキット
 import MapKit           // 地図に必要
+import FirebaseFirestore
 
 // クラスを追加
 class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UIPopoverControllerDelegate {
@@ -18,6 +19,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
 
     //CLLocationManagerの入れ物を用意
     var myLocationManager:CLLocationManager!
+    // firestoreのインスタンス化
+    let db = Firestore.firestore()
+    // データベースから取ってくる情報をすべて格納
+    var items = [NSDictionary]()
+//    // ピン一つ一つにデータベースのデータをもたせる
+//    var pinItem = [String: Any]()
+    // 表示させているものが何番目のドキュメントか判断する変数
+    var num = 0
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,33 +37,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         myLocationManager = CLLocationManager()
         //位置情報使用許可のリクエストを表示するメソッドの呼び出し
         myLocationManager.requestWhenInUseAuthorization()
-        // 地図の初期化
+        // 地図の初期設定
         initMap()
-
-        // ピンをはじめから設置しておくためのもの
-        // 座標を緯線経線0にする
-        let testLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(35.710063, 139.8107)
-        //インスタンス化
-        let pinAnnotation = MKPointAnnotation()
-        //ピンを置く場所の座標を設定
-        pinAnnotation.coordinate  = testLocation
-        //ピンのタイトルの設定
-        pinAnnotation.title       = "test"
-        //ピンのサブタイトルを設定
-        pinAnnotation.subtitle    = "test subtitle"
-        //ピンを地図上に追加
-        mapView.addAnnotation(pinAnnotation)
-
-        // 緯度
-        let myLatDist: CLLocationDistance = 100
-        // 軽度
-        let myLonDist: CLLocationDistance = 100
-
-        // Regionを作成.
-        let myRegion: MKCoordinateRegion = MKCoordinateRegion(center: testLocation, latitudinalMeters: myLatDist, longitudinalMeters: myLonDist)
-        // MapViewに反映.
-        mapView.setRegion(myRegion, animated: true)
+        // firebaseからデータを取得してピンを生成
+        fetch()
     }
+
 
     // ピンの詳細情報を得るために書いた情報
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -76,10 +65,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             myAnnotationView.rightCalloutAccessoryView = button
             myAnnotationView.canShowCallout = true
         }
+
+        // ピンに固有のデータベース情報を持たせる
         return myAnnotationView
     }
 
-    // ボタンを押された時のメソッド
+    // ピンのボタンを押された時のメソッド
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
 
         //アノテーションを消す
@@ -87,31 +78,105 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             mapView.deselectAnnotation(annotation, animated: true)
         }
 
-        //ストーリーボードの名前を指定（何も変更ない状態であれば「Main」だと思う）
+        switch view.annotation?.title {
+        case "大阪":
+            num = 0
+        case "新宿":
+            num = 1
+        case "渋谷":
+            num = 2
+        case "池袋":
+            num = 3
+        case "六本木":
+            num = 4
+        case "東京駅":
+            num = 5
+        case "品川":
+            num = 6
+        default:
+            return
+        }
+
+        //ストーリーボードの名前を指定
         let storyboard = UIStoryboard(name: "MapStoryboard", bundle: nil)
+
+        print("\(MKAnnotation.self)")
         //viewにつけた名前を指定
-        let vc = storyboard.instantiateViewController(withIdentifier: "locationDetail")
-        // 画面遷移方法を指定する
-        vc.modalPresentationStyle = UIModalPresentationStyle.popover
+        let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+
+            vc.tag = num
 
         present(vc, animated: true, completion: nil)
-
-        let popoverPresentationController = vc.popoverPresentationController
-        popoverPresentationController?.sourceView = view
-        popoverPresentationController?.sourceRect = view.bounds
-
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+    // firestoreから投稿データを取得
+    func fetch() {
+        // 取得データを格納する場所
+        var tempItems = [NSDictionary]()
+        // postドキュメントからデータをもらう
+        db.collection("post").getDocuments() {(querysnapshot, err) in
+            // アイテムを全部取ってくる。
+            for item in querysnapshot!.documents {
+                let dict = item.data()
+                tempItems.append(dict as NSDictionary)      // tempItemsに追加
+            }
+            self.items = tempItems                          // 最初に作った配列に格納
+            // 各ドキュメントの情報を取る
+            for place in self.items {
+                // 上のデータに格納
+//                self.pinItem = place as! [String : Any]
+                // 取った情報のplaceNameに対応するところを入手
+                let placeName = place["placeName"] as? String
+                // 場所によって違うピンを立てる
+                switch placeName {
+                case "大阪":
+                    self.addAnnotation(34.7024854, 135.4937619, "大阪", "\(place["name"] ?? "")", place as! [String : Any])
+                case "新宿":
+                    self.addAnnotation(35.689536, 139.699636, "新宿", "\(place["name"] ?? "")", place as! [String : Any])
+                case "渋谷":
+                    self.addAnnotation(35.658034, 139.701636, "渋谷", "\(place["name"] ?? "")", place as! [String : Any])
+                case "池袋":
+                    self.addAnnotation(35.73353, 139.712118, "池袋", "\(place["name"] ?? "")", place as! [String : Any])
+                case "六本木":
+                    self.addAnnotation(35.663262, 139.731572, "六本木", "\(place["name"] ?? "")", place as! [String : Any])
+                case "東京駅":
+                    self.addAnnotation(35.680940, 139.767425, "東京駅", "\(place["name"] ?? "")", place as! [String : Any])
+                case "品川":
+                    self.addAnnotation(35.628628, 139.738813, "品川", "\(place["name"] ?? "")", place as! [String : Any])
+                default:
+                    self.addAnnotation(0, 0, "例外", "赤道", place as! [String : Any])
+                }
+            }
+        }
     }
+
+    // ピンを生成するメソッド
+    func addAnnotation( _ latitude: CLLocationDegrees,_ longitude: CLLocationDegrees, _ title: String,_ subtitle: String, _ personalItems: [String: Any]) {
+
+        // ピンをインスタンス化
+        let addAnnotation = CustumPinAnnotation()
+        // 緯度経度を指定
+        addAnnotation.coordinate = CLLocationCoordinate2DMake(latitude, longitude)
+
+        // タイトル、サブタイトルを設定
+        addAnnotation.title = title
+        addAnnotation.subtitle = subtitle
+
+        // データベースの配列を組み込む
+        addAnnotation.custumItems = personalItems
+        // mapViewに追加
+        mapView.addAnnotation(addAnnotation)
+    }
+
 
     // 位置情報取得に失敗したときに呼び出されるメソッド
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error")
     }
 
+
+    // 初期の縮尺と位置を設定
     func initMap() {
         // 縮尺を設定
         var region:MKCoordinateRegion = mapView.region
@@ -123,15 +188,35 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         // 現在位置設定（デバイスの動きとしてこの時の一回だけ中心位置が現在位置で更新される）
         mapView.userTrackingMode = .follow
     }
+
+
     func updateCurrentPos(_ coordinate:CLLocationCoordinate2D) {
         var region:MKCoordinateRegion = mapView.region
         region.center = coordinate
         mapView.setRegion(region,animated:true)
     }
+
     // CLLocationManagerのdelegate：現在位置取得
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations:[CLLocation]) {
         updateCurrentPos((locations.last?.coordinate)!)
     }
 
+
+    // 現在地に飛ぶためのボタン
+    @IBAction func nowPlaceButton(_ sender: Any) {
+        switch mapView.userTrackingMode {
+        case .none:
+            // noneからfollowへ
+            mapView.setUserTrackingMode(.follow, animated: true)
+        case .follow:
+            // followからfollowWithHeadingへ
+            mapView.setUserTrackingMode(.followWithHeading, animated: true)
+        case .followWithHeading:
+            // followWithHeadingからnoneへ
+            mapView.setUserTrackingMode(.none, animated: true)
+        default:
+            print("謎状態")
+        }
+    }
 
 }

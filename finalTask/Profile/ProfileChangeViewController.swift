@@ -23,6 +23,7 @@ class ProfileChangeViewController: UIViewController {
     // 趣味のテキストフィールド
     @IBOutlet var hobbyTextField: UITextField!
 
+
     // firestoreをインスタンス化
     let db = Firestore.firestore()
 
@@ -46,8 +47,10 @@ class ProfileChangeViewController: UIViewController {
 
         // Firestoreに飛ばす箱を用意
         let userData: NSDictionary = ["name": name ?? "", "age": age ?? "", "comment": comment ?? "", "hobby": hobby ?? ""]
+        // ユーザーIDのオプショナルを外す
+        guard let userId = Auth.auth().currentUser?.uid else { return }
         // コレクションとドキュメントを指定
-        let users = db.collection("users").document("\(String(describing: Auth.auth().currentUser?.uid))")
+        let users = db.collection("users").document("\(userId)")
         // データをアップデート
         users.updateData(userData as! [String : Any])
 
@@ -55,6 +58,13 @@ class ProfileChangeViewController: UIViewController {
         self.dismiss(animated: true)
     }
 
+    // アイコンイメージを変えるボタン
+    @IBAction func iconChangeButton(_ sender: Any) {
 
+    }
+    // バック画像を変更するボタン
+    @IBAction func backImageChangeButton(_ sender: Any) {
+    }
+    
 
 }

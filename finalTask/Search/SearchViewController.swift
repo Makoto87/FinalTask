@@ -8,31 +8,36 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UICollectionViewDataSource {
+class SearchViewController: UIViewController,UICollectionViewDelegate,  UICollectionViewDataSource {
 
     // 検索バーへ行くボタン
     @IBOutlet weak var searchButton: UIButton!
     // 場所のコレクションビュー
     @IBOutlet weak var collectionVIew1: UICollectionView!
-    // ジャンルのコレクションビュー
-    @IBOutlet weak var categoryCollectionView: UICollectionView!
 
-
-
+    // 場所のコレクションビュー
+    var collections = ["osaka", "shibuya", "shinjuku", "tokyo", "ikebukuro", "skytree", "tokyotower"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        collectionVIew1.delegate = self
+        collectionVIew1.dataSource = self
     }
 
-    // コレクションビューを使うためのもの
+    // セルの数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8 // 表示するセルの数
+            return collections.count
     }
-    // コレクションビューを使うためのもの
+
+    // セルの設定
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) // 表示するセルを登録(先程命名した"Cell")
-        cell.backgroundColor = .orange  // セルの色
+        // どの処理をするかチェック
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+
+            let imageView = cell.contentView.viewWithTag(1) as! UIImageView
+            imageView.image = UIImage(named: collections[indexPath.row])
+
+//        collectionImages = (collectionItems[tag][indexPath.row] as? UIImageView)!
         return cell
     }
 

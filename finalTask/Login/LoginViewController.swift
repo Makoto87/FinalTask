@@ -62,27 +62,26 @@ class LoginViewController: UIViewController {
 
                 // firestoreをインスタンス化
                 let db = Firestore.firestore()
+                // 生成したIDのoptional型を外す
+                guard let createId = Auth.auth().currentUser?.uid else { return }
                 // コレクションを指定して、ユーザーごとにドキュメントを作る
-                let users = db.collection("users").document("\(String(describing: Auth.auth().currentUser?.uid))")
-
-                // UserDefaultにfirestoreのIdを格納
-                UserDefaults.standard.set(users.documentID, forKey: "Id")
+                let users = db.collection("users").document("\(String(createId))")
 
                 // ドキュメントにメアドとパスワードを入れる
-                let userData: NSDictionary = ["email": email, "password": password]
+                let userData: NSDictionary = ["email": email, "password": password, "userID": createId]
                 users.setData(userData as! [String : Any])
 
-                // いいねリストを作る
-                // キー値と対応したドキュメントIDを取ってくる
-                guard let userId = UserDefaults.standard.object(forKey: "Id") else {
-                    print("ログイン情報取得失敗")
-                    return
-                }
-                // コレクションを指定して、自分のIDを名前にしたドキュメントを作成
-                let likes = db.collection("likes").document("like")
-                // ドキュメントにいいねした人とされた人を入れる
-                let ids: NSDictionary = ["likedUser": userId, "likeUser": userId]
-                likes.setData(ids as! [String: Any])
+//                // いいねリストを作る
+//                // キー値と対応したドキュメントIDを取ってくる
+//                guard let userId = UserDefaults.standard.object(forKey: "Id") else {
+//                    print("ログイン情報取得失敗")
+//                    return
+//                }
+//                // コレクションを指定して、自分のIDを名前にしたドキュメントを作成
+//                let likes = db.collection("likes").document("like")
+//                // ドキュメントにいいねした人とされた人を入れる
+//                let ids: NSDictionary = ["likedUser": userId, "likeUser": userId]
+//                likes.setData(ids as! [String: Any])
 
                 // タイムラインに遷移する
                 self.toTimeLine()

@@ -25,9 +25,23 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="messageCell" rowHeight="97" id="Tzz-Jv-AUz">
                                         <rect key="frame" x="0.0" y="28" width="414" height="97"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tzz-Jv-AUz" id="jhL-3T-AcU">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tzz-Jv-AUz" id="jhL-3T-AcU">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="96.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EEH-em-uAQ">
+                                                    <rect key="frame" x="5" y="5" width="35" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="35" id="KDh-re-H0g"/>
+                                                        <constraint firstAttribute="height" constant="35" id="ZHg-v3-0pb"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="EEH-em-uAQ" firstAttribute="top" secondItem="jhL-3T-AcU" secondAttribute="top" constant="5" id="NVn-BM-vHq"/>
+                                                <constraint firstItem="EEH-em-uAQ" firstAttribute="leading" secondItem="jhL-3T-AcU" secondAttribute="leading" constant="5" id="UmH-se-0Da"/>
+                                                <constraint firstAttribute="bottom" secondItem="EEH-em-uAQ" secondAttribute="bottom" constant="5" id="hAG-jY-5tp"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -53,20 +67,42 @@
             </objects>
             <point key="canvasLocation" x="-733.33333333333337" y="334.82142857142856"/>
         </scene>
-        <!--Exchange Message View Controller-->
+        <!--Exchange Table View Controller-->
         <scene sceneID="NKl-ee-Fxw">
             <objects>
-                <viewController id="laK-KX-7cb" customClass="ExchangeMessageViewController" customModule="finalTask" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="laK-KX-7cb" customClass="ExchangeTableViewController" customModule="finalTask" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h61-Ng-MOJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ePk-py-kL3">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="画面" translatesAutoresizingMaskIntoConstraints="NO" id="Hpx-HT-mUa">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ePk-py-kL3" firstAttribute="top" secondItem="AYk-tO-tCI" secondAttribute="top" id="5RI-db-AOM"/>
+                            <constraint firstItem="Hpx-HT-mUa" firstAttribute="top" secondItem="AYk-tO-tCI" secondAttribute="top" id="ChW-Cn-YdG"/>
+                            <constraint firstItem="ePk-py-kL3" firstAttribute="leading" secondItem="AYk-tO-tCI" secondAttribute="leading" id="KhN-z2-peo"/>
+                            <constraint firstItem="AYk-tO-tCI" firstAttribute="bottom" secondItem="Hpx-HT-mUa" secondAttribute="bottom" id="XZy-6m-2aN"/>
+                            <constraint firstItem="AYk-tO-tCI" firstAttribute="trailing" secondItem="ePk-py-kL3" secondAttribute="trailing" id="mCA-fF-8lL"/>
+                            <constraint firstItem="AYk-tO-tCI" firstAttribute="bottom" secondItem="ePk-py-kL3" secondAttribute="bottom" id="vdd-pR-G4h"/>
+                            <constraint firstItem="Hpx-HT-mUa" firstAttribute="trailing" secondItem="AYk-tO-tCI" secondAttribute="trailing" id="wrD-h9-SPl"/>
+                            <constraint firstItem="Hpx-HT-mUa" firstAttribute="leading" secondItem="AYk-tO-tCI" secondAttribute="leading" id="xhS-PA-MSK"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="AYk-tO-tCI"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="ePk-py-kL3" id="3hw-cF-m2J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lwe-cY-QzO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="316" y="361"/>
+            <point key="canvasLocation" x="260.86956521739131" y="334.82142857142856"/>
         </scene>
         <!--message-->
         <scene sceneID="Ang-lF-tNd">
@@ -90,5 +126,6 @@
     </scenes>
     <resources>
         <image name="icons8-edit-message-24" width="24" height="24"/>
+        <image name="画面" width="360" height="616"/>
     </resources>
 </document>

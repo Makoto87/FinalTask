@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseFirestore        // インポート
+import FirebaseAuth
 
 class PostViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegate {
 
@@ -27,9 +28,14 @@ class PostViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
     @IBOutlet weak var postOutlet: UIButton!
     // キーボードを表示させる
     @IBOutlet weak var postScrollView: UIScrollView!
+    // 名前を表示する
+    @IBOutlet var nameLabel: UILabel!
+
 
     // firestoreをインスタンス化
     let db = Firestore.firestore()
+    // データベースのプロフ情報から名前のデータを抜き取る
+    var name = ""
 
     // テキストフィールドに書かれたら反応する
     @IBAction func placeTextFieldAction(_ sender: UITextField) {
@@ -45,8 +51,33 @@ class PostViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 自動でキーボードを表示する
+        self.placeTextField.becomeFirstResponder()
         // ボタンを押せなくする
         postOutlet.isEnabled = false
+        // テスト。アイコンを載せる
+        iconImageView.image = #imageLiteral(resourceName: "doraemon")
+        // 名前の情報だけを取ってくる
+        fetch()
+    }
+
+    // データベースからプロフ情報を持ってくる
+    func fetch() {
+        // usersドキュメントからデータをもらう
+        db.collection("users").getDocuments() {(querysnapshot, err) in
+            // アイテムを全部取ってくる。
+            for item in querysnapshot!.documents {
+                let dict = item.data()
+                // ユーザーIDのオプショナルを外す
+                guard let userId = Auth.auth().currentUser?.uid else { return }
+                // 自分のIDと取ったIDが同じ場合
+                if userId == dict["userID"] as? String {
+                    // 名前の情報を取る
+                    self.name = dict["name"] as? String ?? ""
+                    self.nameLabel.text = dict["name"] as? String ?? ""
+                }
+            }
+        }
     }
 
     // キャンセルボタン
@@ -57,6 +88,8 @@ class PostViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
     @IBAction func postButton(_ sender: Any) {
         // 場所を定数化
         let placeName = placeTextField.text
+        // マップのときに使う数字
+        var placeNumber = 0
         // 日時を定数化
         let wishTime = timeTextField.text
         // ジャンルを定数化
@@ -66,14 +99,32 @@ class PostViewController: UIViewController, UIScrollViewDelegate, UITextFieldDel
         // コメントの定数化
         let wishComment = commentTextField.text
 
-        // キー値と対応したドキュメントIDを取ってくる
-        guard let userId = UserDefaults.standard.object(forKey: "Id") else {
-            print("ログイン情報取得失敗")
+        switch placeName {
+        case "大阪":
+            placeNumber = 0
+        case "新宿":
+            placeNumber = 1
+        case "渋谷":
+            placeNumber = 2
+        case "池袋":
+            placeNumber = 3
+        case "六本木":
+            placeNumber = 4
+        case "東京駅":
+            placeNumber = 5
+        case "品川":
+            placeNumber = 6
+        default:
+            return
+        }
+
+        // ログインしているユーザーのIDを使う
+        guard let userId = Auth.auth().currentUser?.uid else {
             return
         }
         
         // Firestoreに飛ばす箱を用意
-        let post: NSDictionary = ["placeName": placeName ?? "", "wishTime": wishTime ?? "", "wishCategory": wishCategory ?? "", "wishPrice": wishPrice ?? "", "wishComment": wishComment ?? "", "userId": userId]
+        let post: NSDictionary = ["placeName": placeName ?? "", "placeNumber": placeNumber, "wishTime": wishTime ?? "", "wishCategory": wishCategory ?? "", "wishPrice": wishPrice ?? "", "wishComment": wishComment ?? "", "userId": userId, "name": name]
 
         // userを辞書型へpost。
         // 辞書型でAnyを使っているのは、受け取るほうが何を受け取るかわからないから。firebaseが指定している。

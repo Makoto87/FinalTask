@@ -21,17 +21,23 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="C4L-6w-W76">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="UPf-oa-4ih" appends="YES" id="HG3-Qh-VEN"/>
-                                </connections>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKq-98-22B">
+                                <rect key="frame" x="359" y="765" width="24" height="24"/>
+                                <state key="normal" image="icons8-triangle-arrow-24"/>
+                                <connections>
+                                    <action selector="nowPlaceButton:" destination="sOz-bp-UZN" eventType="touchUpInside" id="omN-Ct-499"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="F1S-N7-PXG" firstAttribute="trailing" secondItem="C4L-6w-W76" secondAttribute="trailing" id="FjM-pU-yag"/>
                             <constraint firstItem="C4L-6w-W76" firstAttribute="leading" secondItem="F1S-N7-PXG" secondAttribute="leading" id="GHe-gC-VOb"/>
+                            <constraint firstItem="F1S-N7-PXG" firstAttribute="trailing" secondItem="lKq-98-22B" secondAttribute="trailing" constant="31" id="UXV-E6-cY0"/>
                             <constraint firstItem="C4L-6w-W76" firstAttribute="top" secondItem="F1S-N7-PXG" secondAttribute="top" id="cHk-6a-SLr"/>
                             <constraint firstItem="F1S-N7-PXG" firstAttribute="bottom" secondItem="C4L-6w-W76" secondAttribute="bottom" id="chJ-J5-cme"/>
+                            <constraint firstItem="F1S-N7-PXG" firstAttribute="bottom" secondItem="lKq-98-22B" secondAttribute="bottom" constant="24" id="gMZ-ez-a7q"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="F1S-N7-PXG"/>
                     </view>
@@ -39,14 +45,10 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="C4L-6w-W76" id="cj6-ID-svE"/>
+                        <segue destination="T3S-D6-RX2" kind="presentation" identifier="toDetailView" id="Wdo-Vq-MF3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F4F-L7-npc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="UPf-oa-4ih">
-                    <connections>
-                        <action selector="longPressMap:" destination="sOz-bp-UZN" id="J4d-yw-pBN"/>
-                    </connections>
-                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="839.13043478260875" y="51.5625"/>
         </scene>
@@ -177,12 +179,12 @@
         <!--Detail View Controller-->
         <scene sceneID="UYX-Mu-puf">
             <objects>
-                <viewController storyboardIdentifier="locationDetail" useStoryboardIdentifierAsRestorationIdentifier="YES" id="T3S-D6-RX2" customClass="DetailViewController" customModule="finalTask" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="T3S-D6-RX2" customClass="DetailViewController" customModule="finalTask" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CrK-D2-2HQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ezj-7D-aOo">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sweets1" translatesAutoresizingMaskIntoConstraints="NO" id="Ezj-7D-aOo">
                                 <rect key="frame" x="25" y="89" width="55" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="0ru-78-NwG"/>
@@ -290,7 +292,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.91788848458904104" blue="0.81070372941917801" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="VPM-As-zFf" firstAttribute="leading" secondItem="4zr-Ti-zyz" secondAttribute="leading" constant="20" id="0bc-fR-FSp"/>
                             <constraint firstItem="Hyo-cW-gkS" firstAttribute="leading" secondItem="Ezj-7D-aOo" secondAttribute="trailing" constant="30" id="2F0-IP-o2X"/>
@@ -325,5 +327,7 @@
     </scenes>
     <resources>
         <image name="icons8-map-24" width="24" height="24"/>
+        <image name="icons8-triangle-arrow-24" width="24" height="24"/>
+        <image name="sweets1" width="1366" height="1000"/>
     </resources>
 </document>

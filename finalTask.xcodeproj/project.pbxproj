@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BED52D686AFD235F1D1B84D8 /* Pods_finalTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1063668BA04E2CFDDBD10AB9 /* Pods_finalTask.framework */; };
-		E134E77F230B6F8C00566175 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E134E77E230B6F8C00566175 /* CategoryViewController.swift */; };
-		E134E781230B6FA300566175 /* CategoryStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E134E780230B6FA300566175 /* CategoryStoryboard.storyboard */; };
+		E111730423157FBE00F07463 /* AlertTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E111730323157FBE00F07463 /* AlertTableViewCell.swift */; };
+		E113E97E231692EB00A25E60 /* CustumPinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E113E97D231692EB00A25E60 /* CustumPinAnnotation.swift */; };
 		E13B28EA23094B1D002B67D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13B28E923094B1D002B67D9 /* AppDelegate.swift */; };
 		E13B28EC23094B1D002B67D9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13B28EB23094B1D002B67D9 /* MainViewController.swift */; };
 		E13B28EF23094B1D002B67D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13B28ED23094B1D002B67D9 /* Main.storyboard */; };
@@ -25,12 +25,13 @@
 		E13D5286230A70470078CFAB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13D5285230A70470078CFAB /* MapViewController.swift */; };
 		E13D5288230A70560078CFAB /* MessageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13D5287230A70560078CFAB /* MessageStoryboard.storyboard */; };
 		E13D528A230A70650078CFAB /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13D5289230A70650078CFAB /* MessageViewController.swift */; };
+		E142076B2317725700ACEE25 /* ExchangeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E142076A2317725700ACEE25 /* ExchangeTableViewController.swift */; };
+		E142076D2317755E00ACEE25 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E142076C2317755E00ACEE25 /* ChatTableViewCell.swift */; };
 		E143192E230E18BD00E732DE /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E143192D230E18BD00E732DE /* SplashViewController.swift */; };
 		E1431930230E18CB00E732DE /* SplashStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E143192F230E18CB00E732DE /* SplashStoryboard.storyboard */; };
 		E14595132310FBD10009AF03 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14595122310FBD10009AF03 /* DetailViewController.swift */; };
 		E1459516231119C10009AF03 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1459515231119C10009AF03 /* LoginViewController.swift */; };
 		E1459518231119D00009AF03 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1459517231119D00009AF03 /* LoginStoryboard.storyboard */; };
-		E145951A231120EE0009AF03 /* ExchangeMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1459519231120EE0009AF03 /* ExchangeMessageViewController.swift */; };
 		E145952023127ED00009AF03 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E145951F23127ED00009AF03 /* GoogleService-Info.plist */; };
 		E16E0CC2230D217A00F4A95D /* PostCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16E0CC1230D217A00F4A95D /* PostCellViewController.swift */; };
 		E1B22051230D500E008533DF /* SearchStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1B22050230D500E008533DF /* SearchStoryboard.storyboard */; };
@@ -40,8 +41,8 @@
 /* Begin PBXFileReference section */
 		1063668BA04E2CFDDBD10AB9 /* Pods_finalTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_finalTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A389BE4E8AFE73EA30B96509 /* Pods-finalTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-finalTask.debug.xcconfig"; path = "Target Support Files/Pods-finalTask/Pods-finalTask.debug.xcconfig"; sourceTree = "<group>"; };
-		E134E77E230B6F8C00566175 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
-		E134E780230B6FA300566175 /* CategoryStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategoryStoryboard.storyboard; sourceTree = "<group>"; };
+		E111730323157FBE00F07463 /* AlertTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTableViewCell.swift; sourceTree = "<group>"; };
+		E113E97D231692EB00A25E60 /* CustumPinAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustumPinAnnotation.swift; sourceTree = "<group>"; };
 		E13B28E623094B1D002B67D9 /* finalTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = finalTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E13B28E923094B1D002B67D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E13B28EB23094B1D002B67D9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -60,12 +61,13 @@
 		E13D5285230A70470078CFAB /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		E13D5287230A70560078CFAB /* MessageStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MessageStoryboard.storyboard; sourceTree = "<group>"; };
 		E13D5289230A70650078CFAB /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		E142076A2317725700ACEE25 /* ExchangeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeTableViewController.swift; sourceTree = "<group>"; };
+		E142076C2317755E00ACEE25 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		E143192D230E18BD00E732DE /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		E143192F230E18CB00E732DE /* SplashStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashStoryboard.storyboard; sourceTree = "<group>"; };
 		E14595122310FBD10009AF03 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E1459515231119C10009AF03 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E1459517231119D00009AF03 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
-		E1459519231120EE0009AF03 /* ExchangeMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeMessageViewController.swift; sourceTree = "<group>"; };
 		E145951F23127ED00009AF03 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E16E0CC1230D217A00F4A95D /* PostCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewController.swift; sourceTree = "<group>"; };
 		E1B22050230D500E008533DF /* SearchStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchStoryboard.storyboard; sourceTree = "<group>"; };
@@ -94,13 +96,12 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		E134E77D230B6F5400566175 /* Category */ = {
+		E113E97A23161AB100A25E60 /* Alert */ = {
 			isa = PBXGroup;
 			children = (
-				E134E77E230B6F8C00566175 /* CategoryViewController.swift */,
-				E134E780230B6FA300566175 /* CategoryStoryboard.storyboard */,
+				E111730323157FBE00F07463 /* AlertTableViewCell.swift */,
 			);
-			path = Category;
+			path = Alert;
 			sourceTree = "<group>";
 		};
 		E13B28DD23094B1D002B67D9 = {
@@ -147,7 +148,7 @@
 				E1BBA6A8230BEC8100DF29B0 /* PostViewController.swift */,
 				E16E0CC1230D217A00F4A95D /* PostCellViewController.swift */,
 				E13B7B36230FC44700AF4148 /* MenuViewController.swift */,
-				E134E77D230B6F5400566175 /* Category */,
+				E113E97A23161AB100A25E60 /* Alert */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -168,6 +169,7 @@
 				E13D5283230A70380078CFAB /* MapStoryboard.storyboard */,
 				E13D5285230A70470078CFAB /* MapViewController.swift */,
 				E14595122310FBD10009AF03 /* DetailViewController.swift */,
+				E113E97D231692EB00A25E60 /* CustumPinAnnotation.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -177,7 +179,8 @@
 			children = (
 				E13D5287230A70560078CFAB /* MessageStoryboard.storyboard */,
 				E13D5289230A70650078CFAB /* MessageViewController.swift */,
-				E1459519231120EE0009AF03 /* ExchangeMessageViewController.swift */,
+				E142076A2317725700ACEE25 /* ExchangeTableViewController.swift */,
+				E142076C2317755E00ACEE25 /* ChatTableViewCell.swift */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -283,7 +286,6 @@
 				E1459518231119D00009AF03 /* LoginStoryboard.storyboard in Resources */,
 				E13D5280230A70190078CFAB /* ProfileStoryboard.storyboard in Resources */,
 				E1B22051230D500E008533DF /* SearchStoryboard.storyboard in Resources */,
-				E134E781230B6FA300566175 /* CategoryStoryboard.storyboard in Resources */,
 				E1431930230E18CB00E732DE /* SplashStoryboard.storyboard in Resources */,
 				E13B28F123094B1D002B67D9 /* Assets.xcassets in Resources */,
 				E13B28EF23094B1D002B67D9 /* Main.storyboard in Resources */,
@@ -345,19 +347,21 @@
 				E13D5282230A702A0078CFAB /* ProfileViewController.swift in Sources */,
 				E13C3704230EF989003B9FBD /* SearchViewController.swift in Sources */,
 				E13B28EC23094B1D002B67D9 /* MainViewController.swift in Sources */,
+				E142076D2317755E00ACEE25 /* ChatTableViewCell.swift in Sources */,
 				E1459516231119C10009AF03 /* LoginViewController.swift in Sources */,
 				E1BBA6A9230BEC8100DF29B0 /* PostViewController.swift in Sources */,
 				E13B7B35230FB63700AF4148 /* SegueSearchViewController.swift in Sources */,
 				E13B28EA23094B1D002B67D9 /* AppDelegate.swift in Sources */,
+				E142076B2317725700ACEE25 /* ExchangeTableViewController.swift in Sources */,
 				E16E0CC2230D217A00F4A95D /* PostCellViewController.swift in Sources */,
+				E111730423157FBE00F07463 /* AlertTableViewCell.swift in Sources */,
 				E13B7B37230FC44700AF4148 /* MenuViewController.swift in Sources */,
 				E13C3701230ED11D003B9FBD /* ProfileChangeViewController.swift in Sources */,
 				E13D5286230A70470078CFAB /* MapViewController.swift in Sources */,
-				E134E77F230B6F8C00566175 /* CategoryViewController.swift in Sources */,
 				E14595132310FBD10009AF03 /* DetailViewController.swift in Sources */,
-				E145951A231120EE0009AF03 /* ExchangeMessageViewController.swift in Sources */,
 				E13D528A230A70650078CFAB /* MessageViewController.swift in Sources */,
 				E143192E230E18BD00E732DE /* SplashViewController.swift in Sources */,
+				E113E97E231692EB00A25E60 /* CustumPinAnnotation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

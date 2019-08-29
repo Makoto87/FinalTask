@@ -24,9 +24,10 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     var messageData: String = ""
 
     // 名前データを格納した配列。
-    var nameList: [String] = ["Yui Yoshizawa", "Yu Nagai", "Taisuke Nakmura", "Taiga Shiga", "Yuta Wannme", "Kiichi Fukuzawa", "Yuriko Tsunokuni", "Nana Hirata", "Shotaro Tauchi", "Masahiro Toyooka", "Yusuke Ono", "Kaori Kaizaki", "Yusaku Kanada", "Makoto Horita",
+    var nameList: [String] = ["Yui Yoshizawa", "Yu Nagai", "Taisuke Nakmura", "Taiga Shiga", "Yuta Wannme", "Kiichi Fukuzawa", "Yuriko Tsunokuni", "Nana Hirata"
 
                               ]
+    var images: [String] = ["enako1", "humburger", "bakedMeet", "doraemon", "sweets1", "tenkinoko", "カレー横長", "スープアイコン"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +41,21 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         return nameList.count
     }
 
+    // セルの高さ
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+
     // セルの設定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath)
+        // テキストの改行
+        cell.textLabel?.numberOfLines = 0
         // テキストの表示
         cell.textLabel?.text = nameList[indexPath.row]
-
+        cell.imageView?.image = UIImage(named: images[indexPath.row])
+//        cell.imageView?.image?.size = CGSize(width: 50, height: 50)
+//        cell.imageView?.image = images[indexPath.row].resize(CGSizeMake(50, 50))
 
         return cell
     }

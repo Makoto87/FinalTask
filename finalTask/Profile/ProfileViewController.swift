@@ -45,10 +45,10 @@ class ProfileViewController: UIViewController {
         profileTableview.separatorColor = .orange
         profileTableview.backgroundColor = #colorLiteral(red: 1, green: 0.9725007454, blue: 0.9326803989, alpha: 1)
 
-        // 戻るボタン丸くする
+        // 戻るボタンの角を丸くする
         self.backButtonOutlet.layer.cornerRadius = 10
         self.backButtonOutlet.layer.masksToBounds = true
-        // 変更ボタン丸くする
+        // 変更ボタンの角を丸くする
         self.changeButtonOutlet.layer.cornerRadius = 10
         self.changeButtonOutlet.layer.masksToBounds = true
 
@@ -56,55 +56,49 @@ class ProfileViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
 
         getUserItem()
-        if let item = userItems.first {
-            nameLabel.text = item["name"] as? String
-            ageLabel.text = item["age"] as? String
-            commentLabel.text = item["comment"] as? String
+//        if let item = userItems.first {
+//            nameLabel.text = item["name"] as? String
+//            ageLabel.text = item["age"] as? String
+//            commentLabel.text = item["comment"] as? String
+//
+//        } else {
+//            nameLabel.text = "匿名"
+//            ageLabel.text = "不明"
+//            commentLabel.text = ""
+//        }
+    }
 
-        } else {
-            nameLabel.text = "匿名"
-            ageLabel.text = "不明"
-            commentLabel.text = ""
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        getUserItem()
     }
 
     func getUserItem() {
         // 取得データを格納する
         var tempItems = [NSDictionary]()
-
-        // キー値と対応したドキュメントIDを取ってくる
-        guard let userId = UserDefaults.standard.object(forKey: "Id") else {
-            print("ログイン情報取得失敗")
-            return
-        }
-
-        db.collection("users").document("\(userId)").getDocument() {(querysnapshot, err) in
+        // usersドキュメントからデータをもらう
+        db.collection("users").getDocuments() {(querysnapshot, err) in
             // アイテムを全部取ってくる。
-            if err != nil {
-                print("エラー")
-            } else {
-                print(querysnapshot?.data())
-                if let querysnapshot = querysnapshot {
-                    tempItems.append((querysnapshot.data() as! NSDictionary))
-                self.userItems = tempItems
+            for item in querysnapshot!.documents {
+                // ユーザーIDのオプショナルを外す
+                guard let userId = Auth.auth().currentUser?.uid else { return }
+                // 自分のIDとドキュメントに入れたID名が同じ場合
+                if userId == item["userID"] as? String {
+                    // IDが一致した辞書型を配列に組み込む
+                    tempItems.append(item.data() as NSDictionary)
                 }
             }
-        }
-    }
-
-
-    override func viewWillAppear(_ animated: Bool) {
-
-        getUserItem()
-        if let item = userItems.first {
-            nameLabel.text = item["name"] as? String
-            ageLabel.text = item["age"] as? String
-            commentLabel.text = item["comment"] as? String
-
-        } else {
-            nameLabel.text = "匿名"
-            ageLabel.text = "不明"
-            commentLabel.text = ""
+            
+//                self.userItems = tempItems                          // 最初に作った配列に格納
+            if let item = tempItems.first {
+            self.nameLabel.text =
+                item["name"] as? String
+            self.ageLabel.text = item["age"] as? String
+            self.commentLabel.text = item["comment"] as? String
+            } else {
+                self.nameLabel.text = "匿名"
+                self.ageLabel.text = "不明"
+                self.commentLabel.text = ""
+            }
         }
     }
 
