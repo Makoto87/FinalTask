@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>200258560476-71dogkvdcueivt2gh45cfe433vp003sd.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.200258560476-71dogkvdcueivt2gh45cfe433vp003sd</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBd3kI5tmxqQDeSUtwGqizP7wZzarmp0dk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>200258560476</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.makoto.finalTask</string>
+	<key>PROJECT_ID</key>
+	<string>finaltask-60d03</string>
+	<key>STORAGE_BUCKET</key>
+	<string>finaltask-60d03.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:200258560476:ios:f5b1c29c6ae58478</string>
+	<key>DATABASE_URL</key>
+	<string>https://finaltask-60d03.firebaseio.com</string>
+</dict>
+</plist>

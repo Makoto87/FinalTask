@@ -52,7 +52,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     // 自分の名前を入れる変数
     var name = ""
     // テスト用画像配列
-    let testImage = ["splashRogoRemake", "taki_rentarod", "doraemon", "enako1", "tenkinoko", "ランチ アイコン", "icon1", "icon", "icon2"]
+    let testImage = ["splashRogoRemake", "taki_rentarod", "doraemon", "enako1", "tenkinoko", "ランチ アイコン", "icon1", "icon", "icon2", "icon", "icon", "icon"]
     // 名前データを格納した配列。
     var nameList: [String] = ["Yui Yoshizawa", "Yu Nagai", "Taisuke Nakmura", "Taiga Shiga", "Yuta Wannme", "Kiichi Fukuzawa", "Yuriko Tsunokuni", "Nana Hirata", "Shotaro Tauchi", "Masahiro Toyooka", "Yusuke Ono", "Kaori Kaizaki", "Yusaku Kanada", "Makoto Horita"
     ]
